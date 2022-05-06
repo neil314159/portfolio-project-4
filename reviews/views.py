@@ -19,7 +19,7 @@ class ReviewDetail(View):
             request,
             "review_detail.html",
             {
-                "post": review,
+                "review": review,
                 
                 
             },
