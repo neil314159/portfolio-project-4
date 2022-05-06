@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views import generic
+from django.shortcuts import render, get_object_or_404
+from django.views import generic, View
 from .models import Review
 
 class ReviewList(generic.ListView):
@@ -10,7 +10,7 @@ class ReviewList(generic.ListView):
 class ReviewDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Review.objects.all
+        queryset = Review.objects.all()
         review = get_object_or_404(queryset, slug=slug)
         
        
@@ -19,7 +19,7 @@ class ReviewDetail(View):
             request,
             "review_detail.html",
             {
-                "post": post,
+                "post": review,
                 
                 
             },

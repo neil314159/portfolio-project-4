@@ -18,7 +18,8 @@
 <table>
 {% for review in review_list %}
 <tr>
-{{ review.title }}
+    <a href="{% url 'review_detail' review.slug %}">
+{{ review.title }}</a>
 <br>
 </tr>
 {% endfor %}
