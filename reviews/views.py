@@ -13,14 +13,24 @@ class ReviewDetail(View):
         queryset = Review.objects.all()
         review = get_object_or_404(queryset, slug=slug)
         
-       
-
         return render(
             request,
             "review_detail.html",
             {
                 "review": review,
-                
-                
             },
         )
+
+    def post(self, request, slug, *args, **kwargs):
+
+        queryset = Review.objects.all()
+        review = get_object_or_404(queryset, slug=slug)
+        
+        return render(
+            request,
+            "review_detail.html",
+            {
+                "review": review,
+            },
+        )
+

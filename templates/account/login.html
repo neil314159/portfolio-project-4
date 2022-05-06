@@ -7,6 +7,11 @@
 
 {% block content %}
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-3 offset">
+
+    
 <h1>{% trans "Sign In" %}</h1>
 
 {% get_providers as socialaccount_providers %}
@@ -42,5 +47,9 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
 </form>
+
+</div>
+</div>
+</div>
 
 {% endblock %}
