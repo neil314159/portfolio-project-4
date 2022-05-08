@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django_extensions.db.fields import AutoSlugField
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -37,6 +38,10 @@ class Review(models.Model):
 
     def slugify_function(self, content):
         return content.replace('_', '-').lower()
+    
+
+    def get_absolute_url(self):
+        return reverse('review_detail', args=[str(self.slug)])
    
 
 class Comment(models.Model):
