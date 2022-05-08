@@ -28,7 +28,6 @@ class Review(models.Model):
     purchase_link = models.URLField(max_length=250)
     
 
-
     class Meta:
         ordering = ["-published_on"]
 
