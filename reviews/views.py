@@ -37,9 +37,13 @@ class ReviewDetail(generic.DetailView):
 
 class ReviewCreateView(generic.CreateView):
     model = Review
-    fields = ['title', 'author', 'review_text', 'purchase_link', 'star_rating']
+    fields = ['title', 'review_text', 'purchase_link', 'star_rating']
     template_name = "review_form.html"
     # success_url = '/'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 class ReviewUpdateView(generic.UpdateView):
     model = Review
