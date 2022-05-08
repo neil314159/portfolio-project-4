@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from .models import Review, Comment, Category
 from django.urls import reverse_lazy
@@ -35,7 +36,7 @@ class ReviewDetail(generic.DetailView):
     #         },
     #     )
 
-class ReviewCreateView(generic.CreateView):
+class ReviewCreateView(LoginRequiredMixin, generic.CreateView):
     model = Review
     fields = ['title', 'review_text', 'purchase_link', 'star_rating']
     template_name = "review_form.html"
@@ -45,13 +46,13 @@ class ReviewCreateView(generic.CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-class ReviewUpdateView(generic.UpdateView):
+class ReviewUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Review
     template_name = "review_edit.html"
     fields = ['title', 'review_text', 'purchase_link', 'star_rating']
     # success_url = '/'
 
-class ReviewDeleteView(generic.DeleteView):
+class ReviewDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Review
     template_name = 'review_delete.html'
     success_url = reverse_lazy('home')
