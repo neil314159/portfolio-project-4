@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django_extensions.db.fields import AutoSlugField
 
 
 class Category(models.Model):
@@ -15,7 +16,8 @@ class Review(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="reviews"
     )
-    slug = models.SlugField(max_length=250, unique=True)
+    # slug = models.SlugField(max_length=250, unique=True)
+    slug = AutoSlugField(populate_from='title')
     book_cover = CloudinaryField('image', default='placeholder')
     
 
@@ -33,6 +35,9 @@ class Review(models.Model):
     def __str__(self):
         return self.title
 
+
+    def slugify_function(self, content):
+        return content.replace('_', '-').lower()
    
 
 class Comment(models.Model):
