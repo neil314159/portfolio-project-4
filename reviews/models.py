@@ -25,7 +25,7 @@ class Review(models.Model):
     review_text = models.TextField()
     published_on = models.DateTimeField(auto_now_add=True)
     star_rating = models.IntegerField()
-    purchase_link = models.URLField(max_length=250)
+    purchase_link = models.CharField(max_length=300)
     
 
     class Meta:
