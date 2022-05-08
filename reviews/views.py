@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic, View
 from .models import Review, Comment, Category
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 
 class ReviewList(generic.ListView):
@@ -64,3 +65,13 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVi
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
+
+class ReviewSearchResultsListView(generic.ListView):
+    model = Review
+    # queryset = Review.objects.order_by("-published_on")
+    # queryset = Review.objects.order_by("-published_on")
+    context_object_name = 'review_list'
+    template_name = 'search_results.html'
+
+    def get_queryset(self):
+        return Review.objects.filter(Q(title__icontains='test'))
