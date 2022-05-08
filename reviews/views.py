@@ -34,3 +34,4 @@ class ReviewCreateView(generic.CreateView):
     model = Review
     fields = ['title', 'author', 'review_text', 'purchase_link', 'star_rating']
     template_name = "review_form.html"
+    success_url = '/'
