@@ -6,5 +6,8 @@ Title: {{review.title}}
 Text: {{ review.review_text }}
                
 <a href="{% url 'review_edit' review.slug %}">Edit Review</a>
+<br>
+<a href="{% url 'review_delete' review.slug %}">Delete Review</a>
+
 
 {% endblock content %}

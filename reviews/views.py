@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Review, Comment, Category
+from django.urls import reverse_lazy
 
 
 class ReviewList(generic.ListView):
@@ -45,3 +46,8 @@ class ReviewUpdateView(generic.UpdateView):
     template_name = "review_edit.html"
     fields = ['title', 'review_text', 'purchase_link', 'star_rating']
     # success_url = '/'
+
+class ReviewDeleteView(generic.DeleteView):
+    model = Review
+    template_name = 'review_delete.html'
+    success_url = reverse_lazy('home')
