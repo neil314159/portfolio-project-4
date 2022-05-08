@@ -74,4 +74,7 @@ class ReviewSearchResultsListView(generic.ListView):
     template_name = 'search_results.html'
 
     def get_queryset(self):
-        return Review.objects.filter(Q(title__icontains='test'))
+        query = self.request.GET.get('searchterm')
+        return Review.objects.filter(
+            Q(title__icontains=query) | Q(review_text__icontains=query)
+            )
