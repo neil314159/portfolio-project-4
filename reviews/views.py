@@ -78,3 +78,14 @@ class ReviewSearchResultsListView(generic.ListView):
         return Review.objects.filter(
             Q(title__icontains=query) | Q(review_text__icontains=query)
             )
+
+
+class ProfileViewList(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+    model = Review
+    queryset = Review.objects.order_by("-published_on")
+
+    template_name = "profile_view.html"
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
