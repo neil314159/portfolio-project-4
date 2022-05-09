@@ -106,8 +106,10 @@ class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
         # return self.request.user.id ==
 
         obj = self.get_object()
+        # if obj.review.author == self.request.user.id
+        # return (obj.review.author == self.request.user.id)
         return obj.id == self.request.user.id
-        # return obj.author == self.request.user
+        
 
 
 class CommentCreateView(LoginRequiredMixin, generic.CreateView):
@@ -132,7 +134,16 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteV
 
     def test_func(self):
         obj = self.get_object()
-        return obj.author == self.request.user
+        
+         # obj = self.get_object()
+        # return self.request.user.id ==
+
+        
+        # if obj.review.author == self.request.user.id
+        # return (obj.review.author == self.request.user.id)
+        # return obj.id == self.request.user.id
+
+        return (obj.author == self.request.user) or (obj.review.author == self.request.user)
 
 
 class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
