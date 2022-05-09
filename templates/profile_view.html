@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{% url 'account_change_password' %}">Change Password</a>
+<br>
+<a href="{% url 'account_email' %}">Manage email </a>
+<br>
+<a href="{% url 'account_change_password' %}">Delete account</a>
+<br>
+
+
+<!-- <div class="container-fluid">
+
+    <div class="row">
+
+       
+        <div class="col-12 mt-3 left">
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
+
+</div> -->
+<table>
+{% for review in review_list %}
+<tr>
+    <a href="{% url 'review_detail' review.slug %}">
+{{ review.title }}</a>
+<br>
+</tr>
+{% endfor %}
+</table>
+
+{%endblock%}

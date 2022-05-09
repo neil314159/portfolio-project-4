@@ -80,7 +80,7 @@ class ReviewSearchResultsListView(generic.ListView):
             )
 
 
-class ProfileViewList(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+class ProfileViewList(LoginRequiredMixin, generic.ListView):
     model = Review
     queryset = Review.objects.order_by("-published_on")
 
