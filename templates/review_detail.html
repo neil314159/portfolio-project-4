@@ -4,10 +4,26 @@
 Title: {{review.title}}
     <br class="">
 Text: {{ review.review_text }}
-               
+               <br>
 <a href="{% url 'review_edit' review.slug %}">Edit Review</a>
 <br>
 <a href="{% url 'review_delete' review.slug %}">Delete Review</a>
 
-
+<br>
+<br>
+<h2>Comments</h2>
+<br>
+<a href="{%url 'add_comment' review.slug %}">Add comment</a><br>
+<br>
+{%if not review.comments.all %}
+    No comments . . 
+{%else%}
+    <a href="{%url 'add_comment' review.slug %}">Add comment</a><br>
+    {% for comment in review.comments.all %}
+        {{ comment.comment_text }}
+        <br>
+        {{ comment.published_on }} by {{ comment.author}}
+        <br>
+    {% endfor %}
+{%endif%}
 {% endblock content %}

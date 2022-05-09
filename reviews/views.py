@@ -108,3 +108,15 @@ class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
         # return obj.author == self.request.user
 
 
+class CommentCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Comment
+    fields = ['comment_text', ]
+    template_name = "add_comment.html"
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        queryset = Review.objects.all()
+        tempreview = get_object_or_404(queryset, slug=self.kwargs['slug'])
+        form.instance.review = tempreview
+        return super().form_valid(form)

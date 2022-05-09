@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Create comment</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a href="{% url 'home' %}" class="btn btn-default">Cancel</a>
+    <input type="submit" value="submit">
+</form>
+               
+
+{% endblock content %}
