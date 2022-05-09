@@ -87,9 +87,10 @@ class ProfileViewList(LoginRequiredMixin, generic.ListView):
 
     template_name = "profile_view.html"
 
-    def test_func(self):
-        obj = self.get_object()
-        return obj.author == self.request.user
+    def get_queryset(self):
+        return Review.objects.filter(author=self.request.user).order_by('-published_on')
+    
+
 
 class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = User
