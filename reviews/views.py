@@ -40,7 +40,7 @@ class ReviewDetail(generic.DetailView):
 
 class ReviewCreateView(LoginRequiredMixin, generic.CreateView):
     model = Review
-    fields = ['title', 'review_text', 'purchase_link', 'star_rating']
+    fields = ['title', 'review_text', 'category', 'purchase_link', 'star_rating']
     template_name = "review_form.html"
     # success_url = '/'
 
@@ -167,8 +167,14 @@ class CategoryList(generic.ListView):
     def get_queryset(self):
         content = {
             'cat': self.kwargs['category'],
-            'reviews': Review.objects.all()
+            'reviews': Review.objects.filter(category__name=self.kwargs['category'])
         }
         return content
 
 # 'reviews': Review.objects.filter(category__name=self.kwargs['category'])
+
+def review_category_list(request):
+    review_category_list = Category.objects.all()
+    context = { "review_category_list": review_category_list,
+    }
+    return context
