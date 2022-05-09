@@ -58,6 +58,8 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVi
         obj = self.get_object()
         return obj.author == self.request.user
 
+
+
 class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = Review
     template_name = 'review_delete.html'
@@ -112,7 +114,7 @@ class CommentCreateView(LoginRequiredMixin, generic.CreateView):
     model = Comment
     fields = ['comment_text', ]
     template_name = "add_comment.html"
-    success_url = '/'
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -120,3 +122,25 @@ class CommentCreateView(LoginRequiredMixin, generic.CreateView):
         tempreview = get_object_or_404(queryset, slug=self.kwargs['slug'])
         form.instance.review = tempreview
         return super().form_valid(form)
+
+
+class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = Comment
+    template_name = "comment_delete.html"
+    fields = ['comment_text', ]
+    success_url = '/'
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
+
+
+class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Comment
+    template_name = "comment_edit.html"
+    fields = ['comment_text',]
+    success_url = '/'
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user

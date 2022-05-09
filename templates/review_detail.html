@@ -20,10 +20,15 @@ Text: {{ review.review_text }}
 {%else%}
     <a href="{%url 'add_comment' review.slug %}">Add comment</a><br>
     {% for comment in review.comments.all %}
+        
         {{ comment.comment_text }}
         <br>
         {{ comment.published_on }} by {{ comment.author}}
-        <br>
+            <br>
+            {% if user == comment.author %}
+            <a href="{%url 'delete_comment' comment.id%}">Delete</a><br>
+            <a href="{%url 'edit_comment' comment.id%}">Edit</a><br>
+            {%endif%}
     {% endfor %}
 {%endif%}
 {% endblock content %}

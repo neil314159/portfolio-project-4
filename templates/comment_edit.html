@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Edit comment</h1>
+<form action="" method="post">
+{%csrf_token%}
+{{form.as_p}}
+<!-- <a href="{{request.META.HTTP_REFERER|escape}}">Back</a> -->
+<a href="{{ view.get_success_url }}" class="btn btn-default">Cancel</a>
+<input type="submit" value="Update">
+
+</form>
+
+               
+
+{% endblock content %}
