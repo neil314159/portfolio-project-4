@@ -6,3 +6,7 @@ from django import forms
 #     class Meta:
 #         model = Comment
 #         fields = ('body',)
+
+class UserDeleteForm(forms.Form):
+   
+    delete = forms.BooleanField(required=True)

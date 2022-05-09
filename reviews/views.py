@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 from django.views import generic, View
 from .models import Review, Comment, Category
 from django.urls import reverse_lazy
@@ -89,3 +90,20 @@ class ProfileViewList(LoginRequiredMixin, generic.ListView):
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
+
+class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = User
+    template_name = 'user_delete.html'
+    success_url = reverse_lazy('home')
+    success_message = "Your account has been deleted"
+
+   
+    def test_func(self):
+        # obj = self.get_object()
+        # return self.request.user.id ==
+
+        obj = self.get_object()
+        return obj.id == self.request.user.id
+        # return obj.author == self.request.user
+
+
