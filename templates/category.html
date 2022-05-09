@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+
+
+{% block title%} categorylist {%endblock title%}
+
+{% block content %}
+
+<h1>Results:</h1>
+
+<h1> List of {{categorylist.cat}} posts</h1>
+{% for review in categorylist.reviews %}
+<div>
+<a href="{{ review.get_absolute_url }}"> {{ review.title}}</a>
+<p>Author: {{review.author}}</p>
+<br>
+</div>
+{%endfor%}
+
+{% endblock content %}

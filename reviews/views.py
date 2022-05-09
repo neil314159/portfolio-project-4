@@ -155,3 +155,20 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateV
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
+
+
+class CategoryList(generic.ListView):
+    model = Category
+
+    # queryset = Review.objects.order_by("-published_on")
+    template_name = "category.html"
+    context_object_name = 'categorylist'
+
+    def get_queryset(self):
+        content = {
+            'cat': self.kwargs['category'],
+            'reviews': Review.objects.all()
+        }
+        return content
+
+# 'reviews': Review.objects.filter(category__name=self.kwargs['category'])

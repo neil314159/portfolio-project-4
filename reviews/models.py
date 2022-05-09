@@ -6,7 +6,7 @@ from django.urls import reverse
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
     
 
     def __str__(self):
@@ -22,7 +22,7 @@ class Review(models.Model):
     book_cover = CloudinaryField('image', default='placeholder')
     
 
-    # category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
     review_text = models.TextField()
     published_on = models.DateTimeField(auto_now_add=True)
     star_rating = models.IntegerField()
