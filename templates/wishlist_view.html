@@ -5,19 +5,12 @@
 
 {% block content %}
 
-<!-- <h1>Results:</h1>
-{% for review in review_list %}
-<div>
-<a href="{{ review.get_absolute_url }}"> {{ review.title}}</a>
-<p>Author: {{review.author}}</p>
 
-</div>
-{%endfor%} -->
 
 <table>
     {% for wish in wishlist %}
     <tr>
-        <a href="{% url 'review_detail' wish.review.slug %}">
+        <a href="{{ wish.review.get_absolute_url }}">
             <br>
             
             
