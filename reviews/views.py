@@ -184,7 +184,25 @@ def add_to_wishlist(request, id):
     # new_book = WishlistItem()
     # new_book.author = request.user
     # queryset = Review.objects.filter(id=id)
-    bookreview = Review.objects.get(id=id)
+
+    # check for invalid review page if someone uses URL manipulation 
+    try:
+        bookreview = Review.objects.get(id=id)
+    except:
+        return HttpResponseRedirect(reverse_lazy('wishlist'))
+    WishlistItem.objects.create(author=request.user, review=bookreview)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+def wishlist_toggle_read(request, id):
+    # new_book = WishlistItem()
+    # new_book.author = request.user
+    # queryset = Review.objects.filter(id=id)
+    # WishlistItem.objects.get
+    # try:
+    #     bookreview = Review.objects.get(id=id)
+    # except:
+
+    
     WishlistItem.objects.create(author=request.user, review=bookreview)
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
@@ -204,28 +222,16 @@ def add_to_wishlist(request, id):
 
 class WishlistListView(LoginRequiredMixin, generic.ListView):
     model = WishlistItem
-    # queryset = WishlistItem.objects.order_by("-published_on")
-    # queryset = Review.objects.order_by("-published_on")
+   
     context_object_name = 'wishlist'
     template_name = 'wishlist_view.html'
 
     def get_queryset(self):
         return WishlistItem.objects.filter(author=self.request.user).order_by('-published_on')
 
-    # def get_queryset(self):
-    #     query = self.request.GET.get('searchterm')
-    #     return Review.objects.filter(
-    #         Q(title__icontains=query) | Q(review_text__icontains=query)
-    #         )
+   
     
-# class ProfileViewList(LoginRequiredMixin, generic.ListView):
-#     model = Review
-#     queryset = Review.objects.order_by("-published_on")
 
-#     template_name = "profile_view.html"
-
-#     def get_queryset(self):
-#         return Review.objects.filter(author=self.request.user).order_by('-published_on')
 
 class WishListDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = WishlistItem
