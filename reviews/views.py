@@ -191,3 +191,17 @@ class WishListItemCreateView(LoginRequiredMixin, generic.CreateView):
         tempreview = get_object_or_404(queryset, slug=self.kwargs['slug'])
         form.instance.review = tempreview
         return super().form_valid(form)
+
+
+class WishlistListView(LoginRequiredMixin, generic.ListView):
+    model = WishlistItem
+    # queryset = Review.objects.order_by("-published_on")
+    # queryset = Review.objects.order_by("-published_on")
+    context_object_name = 'wishlist'
+    template_name = 'wishlist_view.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('searchterm')
+        return Review.objects.filter(
+            Q(title__icontains=query) | Q(review_text__icontains=query)
+            )

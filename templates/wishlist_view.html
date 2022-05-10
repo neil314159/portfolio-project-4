@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+
+
+{% block title%} Search {%endblock title%}
+
+{% block content %}
+
+<h1>Results:</h1>
+{% for review in review_list %}
+<div>
+<a href="{{ review.get_absolute_url }}"> {{ review.title}}</a>
+<p>Author: {{review.author}}</p>
+
+</div>
+{%endfor%}
+
+{% endblock content %}
