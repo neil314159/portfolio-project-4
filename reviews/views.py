@@ -190,8 +190,13 @@ def add_to_wishlist(request, id):
         bookreview = Review.objects.get(id=id)
     except:
         return HttpResponseRedirect(reverse_lazy('wishlist'))
+
+    #check if wishlist item already exists before adding
+    if WishlistItem.objects.filter(author=request.user, review=bookreview).count() > 0:
+        return HttpResponseRedirect(reverse_lazy('wishlist'))
+
     WishlistItem.objects.create(author=request.user, review=bookreview)
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+    return HttpResponseRedirect(reverse_lazy('wishlist'))
 
 def wishlist_toggle_read(request, id):
     # new_book = WishlistItem()
@@ -201,23 +206,10 @@ def wishlist_toggle_read(request, id):
     # try:
     #     bookreview = Review.objects.get(id=id)
     # except:
-
-    
     WishlistItem.objects.create(author=request.user, review=bookreview)
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
-# class WishListItemCreateView(LoginRequiredMixin, generic.CreateView):
-#     model = WishlistItem
-#     # fields = ['comment_text', ]
-#     # template_name = "add_comment.html"
-#     success_url = reverse_lazy('home')
 
-#     def form_valid(self, form):
-#         form.instance.author = self.request.user
-#         queryset = Review.objects.all()
-#         tempreview = get_object_or_404(queryset, slug=self.kwargs['slug'])
-#         form.instance.review = tempreview
-#         return super().form_valid(form)
 
 
 class WishlistListView(LoginRequiredMixin, generic.ListView):
@@ -228,9 +220,6 @@ class WishlistListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return WishlistItem.objects.filter(author=self.request.user).order_by('-published_on')
-
-   
-    
 
 
 class WishListDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
