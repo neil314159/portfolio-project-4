@@ -69,5 +69,5 @@ class WishlistItem(models.Model):
         User, on_delete=models.CASCADE, related_name="wishlistowner"
     )
    
-    book_marked_as_read = False
+    book_marked_as_read = models.BooleanField(default=False)
     published_on = models.DateTimeField(auto_now_add=True)
