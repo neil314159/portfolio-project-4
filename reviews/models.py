@@ -61,3 +61,13 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment text is: {self.comment_text}"
 
+
+class WishlistItem(models.Model):
+    review = models.ForeignKey(Review, on_delete=models.CASCADE,
+                             related_name="wishlist")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="wishlistowner"
+    )
+   
+    book_marked_as_read = False
+    published_on = models.DateTimeField(auto_now_add=True)
