@@ -6,11 +6,13 @@ from .models import Review, Comment, Category, WishlistItem
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 
 class ReviewList(generic.ListView):
     model = Review
     queryset = Review.objects.order_by("-published_on")
+    paginate_by = 2
     template_name = "index.html"
 
 
@@ -72,10 +74,11 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVi
 
 class ReviewSearchResultsListView(generic.ListView):
     model = Review
-    # queryset = Review.objects.order_by("-published_on")
-    # queryset = Review.objects.order_by("-published_on")
+    
     context_object_name = 'review_list'
     template_name = 'search_results.html'
+
+    paginate_by = 2
 
     def get_queryset(self):
         query = self.request.GET.get('searchterm')
@@ -103,12 +106,10 @@ class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
 
    
     def test_func(self):
-        # obj = self.get_object()
-        # return self.request.user.id ==
+       
 
         obj = self.get_object()
-        # if obj.review.author == self.request.user.id
-        # return (obj.review.author == self.request.user.id)
+       
         return obj.id == self.request.user.id
         
 
@@ -136,13 +137,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteV
     def test_func(self):
         obj = self.get_object()
         
-         # obj = self.get_object()
-        # return self.request.user.id ==
-
         
-        # if obj.review.author == self.request.user.id
-        # return (obj.review.author == self.request.user.id)
-        # return obj.id == self.request.user.id
 
         return (obj.author == self.request.user) or (obj.review.author == self.request.user)
 
@@ -180,11 +175,9 @@ def review_category_list(request):
     }
     return context
 
+@login_required
 def add_to_wishlist(request, id):
-    # new_book = WishlistItem()
-    # new_book.author = request.user
-    # queryset = Review.objects.filter(id=id)
-
+   
     # check for invalid review page if someone uses URL manipulation 
     try:
         bookreview = Review.objects.get(id=id)
@@ -197,6 +190,7 @@ def add_to_wishlist(request, id):
 
     WishlistItem.objects.create(author=request.user, review=bookreview)
     return HttpResponseRedirect(reverse_lazy('wishlist'))
+
 
 def wishlist_toggle_read(request, id):
     # new_book = WishlistItem()
