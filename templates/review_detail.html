@@ -1,9 +1,21 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% load static %}
+
+{% load cloudinary %}
+
+{% block content %}
 
 
 Title: {{review.title}}
     <br class="">
 Text: {{ review.review_text }}
+               <br>
+               text
+               <br>
+               {{ review.book_cover.url }}
+               <br>
+               <img src="{{ review.book_cover.url }}" alt="">
+               text
                <br>
 <a href="{% url 'review_edit' review.slug %}">Edit Review</a>
 <br>

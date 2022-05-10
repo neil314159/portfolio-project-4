@@ -40,7 +40,7 @@ class ReviewDetail(generic.DetailView):
 
 class ReviewCreateView(LoginRequiredMixin, generic.CreateView):
     model = Review
-    fields = ['title', 'review_text', 'category', 'purchase_link', 'star_rating']
+    fields = ['title', 'review_text', 'category', 'book_cover','purchase_link', 'star_rating']
     template_name = "review_form.html"
     # success_url = '/'
 
@@ -178,3 +178,16 @@ def review_category_list(request):
     context = { "review_category_list": review_category_list,
     }
     return context
+
+class WishListItemCreateView(LoginRequiredMixin, generic.CreateView):
+    model = WishlistItem
+    # fields = ['comment_text', ]
+    # template_name = "add_comment.html"
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        queryset = Review.objects.all()
+        tempreview = get_object_or_404(queryset, slug=self.kwargs['slug'])
+        form.instance.review = tempreview
+        return super().form_valid(form)
