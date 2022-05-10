@@ -191,16 +191,16 @@ def add_to_wishlist(request, id):
     WishlistItem.objects.create(author=request.user, review=bookreview)
     return HttpResponseRedirect(reverse_lazy('wishlist'))
 
-
+@login_required
 def wishlist_toggle_read(request, id):
-    # new_book = WishlistItem()
-    # new_book.author = request.user
-    # queryset = Review.objects.filter(id=id)
-    # WishlistItem.objects.get
-    # try:
-    #     bookreview = Review.objects.get(id=id)
-    # except:
-    WishlistItem.objects.create(author=request.user, review=bookreview)
+    
+    try:
+        wishlist = WishlistItem.objects.get(id=id)
+    except:
+        return HttpResponseRedirect(reverse_lazy('wishlist'))
+    wishlist.book_marked_as_read = not wishlist.book_marked_as_read
+    wishlist.save()
+    
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 

@@ -26,6 +26,8 @@
     <a href="{% url 'remove_wishlist' wish.id %}">Delete From wishlist</a>
     <br>
     {{wish.review.purchase_link}}<br>
+    {{wish.book_marked_as_read}}<br>
+    <a href="{% url 'toggle_wishlist' wish.id %}">Mark as read</a><br>
     </tr>
     {% endfor %}
     </table>

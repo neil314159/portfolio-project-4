@@ -7,6 +7,7 @@ urlpatterns = [
     path('wishlist/', views.WishlistListView.as_view(), name='wishlist'),
     path('wishlist/remove/<int:pk>', views.WishListDeleteView.as_view(), name='remove_wishlist'),
     path('wishlist/add/<int:id>', views.add_to_wishlist, name='add_wishlist'),
+    path('wishlist/toggle/<int:id>', views.wishlist_toggle_read, name='toggle_wishlist'),
     path('deleteprofile/<int:pk>', views.UserDeleteView.as_view(), name='deleteprofile'),
     path('search/', views.ReviewSearchResultsListView.as_view(), name='search_results'),
     path('<slug:slug>/edit/', views.ReviewUpdateView.as_view(), name="review_edit"),
