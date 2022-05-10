@@ -195,13 +195,25 @@ class WishListItemCreateView(LoginRequiredMixin, generic.CreateView):
 
 class WishlistListView(LoginRequiredMixin, generic.ListView):
     model = WishlistItem
-    # queryset = Review.objects.order_by("-published_on")
+    # queryset = WishlistItem.objects.order_by("-published_on")
     # queryset = Review.objects.order_by("-published_on")
     context_object_name = 'wishlist'
     template_name = 'wishlist_view.html'
 
     def get_queryset(self):
-        query = self.request.GET.get('searchterm')
-        return Review.objects.filter(
-            Q(title__icontains=query) | Q(review_text__icontains=query)
-            )
+        return WishlistItem.objects.filter(author=self.request.user).order_by('-published_on')
+
+    # def get_queryset(self):
+    #     query = self.request.GET.get('searchterm')
+    #     return Review.objects.filter(
+    #         Q(title__icontains=query) | Q(review_text__icontains=query)
+    #         )
+    
+# class ProfileViewList(LoginRequiredMixin, generic.ListView):
+#     model = Review
+#     queryset = Review.objects.order_by("-published_on")
+
+#     template_name = "profile_view.html"
+
+#     def get_queryset(self):
+#         return Review.objects.filter(author=self.request.user).order_by('-published_on')
