@@ -18,9 +18,12 @@
     {% for wish in wishlist %}
     <tr>
         <a href="{% url 'review_detail' wish.review.slug %}">
+            <br>
+            
             
     {{ wish.review.title }}</a>
     <br>
+    <a href="{% url 'remove_wishlist' wish.id %}">Delete From wishlist</a>
     <br>
     {{wish.review.purchase_link}}<br>
     </tr>

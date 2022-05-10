@@ -22,6 +22,7 @@ Text: {{ review.review_text }}
 <a href="{% url 'review_delete' review.slug %}">Delete Review</a>
 
 <br>
+<a href="{% url 'add_wishlist' review.id %}">Add to wishlist</a>
 <br>
 <h2>Comments</h2>
 <br>

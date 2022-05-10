@@ -5,6 +5,7 @@ from django.views import generic, View
 from .models import Review, Comment, Category, WishlistItem
 from django.urls import reverse_lazy
 from django.db.models import Q
+from django.http import HttpResponseRedirect
 
 
 class ReviewList(generic.ListView):
@@ -179,18 +180,26 @@ def review_category_list(request):
     }
     return context
 
-class WishListItemCreateView(LoginRequiredMixin, generic.CreateView):
-    model = WishlistItem
-    # fields = ['comment_text', ]
-    # template_name = "add_comment.html"
-    success_url = reverse_lazy('home')
+def add_to_wishlist(request, id):
+    # new_book = WishlistItem()
+    # new_book.author = request.user
+    # queryset = Review.objects.filter(id=id)
+    bookreview = Review.objects.get(id=id)
+    WishlistItem.objects.create(author=request.user, review=bookreview)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        queryset = Review.objects.all()
-        tempreview = get_object_or_404(queryset, slug=self.kwargs['slug'])
-        form.instance.review = tempreview
-        return super().form_valid(form)
+# class WishListItemCreateView(LoginRequiredMixin, generic.CreateView):
+#     model = WishlistItem
+#     # fields = ['comment_text', ]
+#     # template_name = "add_comment.html"
+#     success_url = reverse_lazy('home')
+
+#     def form_valid(self, form):
+#         form.instance.author = self.request.user
+#         queryset = Review.objects.all()
+#         tempreview = get_object_or_404(queryset, slug=self.kwargs['slug'])
+#         form.instance.review = tempreview
+#         return super().form_valid(form)
 
 
 class WishlistListView(LoginRequiredMixin, generic.ListView):
@@ -217,3 +226,12 @@ class WishlistListView(LoginRequiredMixin, generic.ListView):
 
 #     def get_queryset(self):
 #         return Review.objects.filter(author=self.request.user).order_by('-published_on')
+
+class WishListDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = WishlistItem
+    template_name = 'wishlist_delete.html'
+    success_url = reverse_lazy('wishlist')
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
