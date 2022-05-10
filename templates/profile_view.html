@@ -26,8 +26,7 @@
 <table>
 {% for review in review_list %}
 <tr>
-    <a href="{% url 'review_detail' review.slug %}">
-{{ review.title }}</a>
+    <a href="{{review.get_absolute_url}}"> {{ review.title }}</a>
 <br>
 </tr>
 {% endfor %}

@@ -17,8 +17,11 @@ class ReviewList(generic.ListView):
 
 
 class ReviewDetail(generic.DetailView):
+    
+    
     model = Review
     template_name = "review_detail.html"
+    
     # def get(self, request, slug, *args, **kwargs):
     #     queryset = Review.objects.all()
     #     review = get_object_or_404(queryset, slug=slug)
@@ -43,7 +46,7 @@ class ReviewDetail(generic.DetailView):
 
 class ReviewCreateView(LoginRequiredMixin, generic.CreateView):
     model = Review
-    fields = ['title', 'review_text', 'category', 'book_cover','purchase_link', 'star_rating']
+    fields = ['title', 'slug', 'review_text', 'category', 'book_cover','purchase_link', 'star_rating']
     template_name = "review_form.html"
     # success_url = '/'
 

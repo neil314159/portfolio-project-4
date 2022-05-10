@@ -13,12 +13,12 @@ class Category(models.Model):
         return self.name
 
 class Review(models.Model):
-    title = models.CharField(max_length=250, unique=True)
+    title = models.CharField(max_length=250, unique=False)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="reviews"
     )
-    # slug = models.SlugField(max_length=250, unique=True)
-    slug = AutoSlugField(populate_from='title')
+    slug = models.SlugField(max_length=250, unique=True)
+    # slug = AutoSlugField(populate_from='title')
     book_cover = CloudinaryField('image', default='placeholder')
     
 
@@ -36,8 +36,8 @@ class Review(models.Model):
         return self.title
 
 
-    def slugify_function(self, content):
-        return content.replace('_', '-').lower()
+    # def slugify_function(self, content):
+    #     return content.replace('_', '-').lower()
     
 
     def get_absolute_url(self):
