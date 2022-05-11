@@ -1,6 +1,14 @@
-.star-rating {
-    line-height:32px;
-    font-size:1.25em;
-  }
-  
-  .star-rating .fa-star{color: yellow;}
+.star-style {
+  height: 40px;
+  width: 40px;
+  padding-right: 3px;
+}
+
+.star-value {
+  margin-top: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+
