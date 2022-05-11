@@ -21,7 +21,7 @@ class Review(models.Model):
     slug = models.SlugField(max_length=240, unique=True, editable=False, null=False)
     # slug = AutoSlugField(populate_from='title')
     book_cover = CloudinaryField('image', default='placeholder')
-    
+    book_cover = CloudinaryField('image', blank=True, transformation={'width': '625', 'height': '1000', 'crop': 'fill', 'gravity': "auto"}, default=("https://res.cloudinary.com/dpsodnurd/image/upload/v1652144706/pylwugl05ovxnbmaa8rs.jpg"))
 
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
     review_text = models.TextField()
