@@ -5,6 +5,13 @@ from django_extensions.db.fields import AutoSlugField
 from django.urls import reverse
 from django.utils.text import slugify
 
+STAR_RATING = (
+    (1, "⭐"),
+    (2, "⭐⭐"),
+    (3, "⭐⭐⭐"),
+    (4, "⭐⭐⭐⭐"),
+    (5, "⭐⭐⭐⭐⭐"),
+)
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -27,6 +34,7 @@ class Review(models.Model):
     review_text = models.TextField()
     published_on = models.DateTimeField(auto_now_add=True)
     star_rating = models.IntegerField()
+    star_rating2 = models.IntegerField(choices=STAR_RATING, default=5)
     purchase_link = models.CharField(max_length=300, blank=True)
     
 

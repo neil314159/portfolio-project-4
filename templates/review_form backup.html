@@ -15,44 +15,19 @@
     <br>
     {{form.purchase_link}}
     <br>
-    
-    <i class="fa-solid fa-star-sharp"></i>
-    <fieldset class="star-rating">
-        <legend>Your rating:</legend>
-            <div>
-                    <input type="radio" name="rating" value="1" id="rating1" />
-                    <label for="rating1"><span>1</span></label>
-                    <input type="radio" name="rating" value="2" id="rating2" />
-                    <label for="rating2"><span>2</span></label>
-                     <input type="radio" name="rating" value="3" id="rating3" />
-                    <label for="rating3"><span>3</span></label>
-                     <input type="radio" name="rating" value="4" id="rating4" />
-                    <label for="rating4"><span>4</span></label>
-                     <input type="radio" name="rating" value="5" id="rating5" />
-                    <label for="rating5"><span>5</span></label>
-            </div>
-    </fieldset>
-    <div class="rating">
-        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-        </div>
-
-        <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="star-rating">
-                  <span class="fa fa-star" data-rating="1"></span>
-                  <span class="fa fa-star" data-rating="2"></span>
-                  <span class="fa fa-star" data-rating="3"></span>
-                  <span class="fa fa-star" data-rating="4"></span>
-                  <span class="fa fa-star" data-rating="5"></span>
-                  <input type="hidden" name="whatever1" class="rating-value" value="2.56">
-                </div>
-              </div>
-            </div>
-    <br>
-
+    cover
     {{form.book_cover}}
-    
+    <br>
+    rating here
+   star star <br>
+    <div class="wrapper">
+      <div id="stars" class="starsContainer">
+       
+      </div>
+      <div class="star-value" id="display-star-value"></div>
+    </div>
+    {{form.star_rating}}
+    <br>
     <a href="{% url 'home' %}" class="btn btn-default">Cancel</a>
     <input type="submit" value="submit">
 </form>

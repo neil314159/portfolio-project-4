@@ -7,26 +7,10 @@
 
 <form method="post" enctype="multipart/form-data" class=" review-form">
     {% csrf_token %}
-    {{form.title}}
+    
+    {{form.as_p}}
     <br>
-    {{form.review_text}}
-    <br>
-    {{form.category}}
-    <br>
-    {{form.purchase_link}}
-    <br>
-    cover
-    {{form.book_cover}}
-    <br>
-    rating here
-   star star <br>
-    <div class="wrapper">
-      <div id="stars" class="starsContainer">
-       
-      </div>
-      <div class="star-value" id="display-star-value"></div>
-    </div>
-    {{form.star_rating}}
+   
     <br>
     <a href="{% url 'home' %}" class="btn btn-default">Cancel</a>
     <input type="submit" value="submit">
