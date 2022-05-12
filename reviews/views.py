@@ -46,7 +46,7 @@ class ReviewDetail(generic.DetailView):
 
 class ReviewCreateView(LoginRequiredMixin, generic.CreateView):
     model = Review
-    fields = ['title', 'review_text', 'category', 'book_cover','purchase_link', 'star_rating', 'star_rating2']
+    fields = ['title', 'book_author', 'review_text', 'category', 'book_cover','purchase_link', 'star_rating', 'star_rating2']
     template_name = "review_form.html"
     # success_url = '/'
 

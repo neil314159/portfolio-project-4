@@ -22,6 +22,7 @@ class Category(models.Model):
 
 class Review(models.Model):
     title = models.CharField(max_length=250, unique=False)
+    book_author = models.CharField(max_length=200)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="reviews"
     )
