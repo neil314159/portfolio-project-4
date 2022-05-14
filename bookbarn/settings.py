@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'django_extensions',
     'crispy_forms',
     'pages',
     'reviews',
@@ -80,6 +81,14 @@ MESSAGE_TAGS = {
     }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+  "app_labels": [
+        "reviews",
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
