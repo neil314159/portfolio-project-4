@@ -1,9 +1,64 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 
 {% block title%} Wishlist {%endblock title%}
 
 {% block content %}
+
+
+<div class="container-sm my-4">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Review</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for wish in wishlist %}
+                    <tr>
+                        <td><a href="{{ wish.review.get_absolute_url }}">
+                            {% if wish.book_marked_as_read %}
+                            <del> {{ wish.review.title }}</a></del>
+                            {%else%}
+                            {{ wish.review.title }}</a>
+                            {%endif%}
+                        </td>
+                        <td>
+                            {% if wish.book_marked_as_read %}
+                            <del> {{ wish.review.book_author }}</a></del>
+                            {%else%}
+                            {{ wish.review.book_author }}</a>
+                            {%endif%}
+                            </td>
+
+                        <td>
+                            
+                            <a href="{% url 'toggle_wishlist' wish.id %}" class="btn btn-primary">
+                                {% if wish.book_marked_as_read %}
+                            Unmark as Read
+                            {%else%}
+                           Mark as Read
+                            {%endif%}
+                            </a>
+
+
+                            <a href="#" class="btn btn-success">Purchase Book</a>
+                            <a href="{% url 'remove_wishlist' wish.id %}" class="btn btn-danger">Delete From
+                                Wishlist</a>
+
+
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
 
@@ -12,17 +67,17 @@
     <tr>
         <a href="{{ wish.review.get_absolute_url }}">
             <br>
-            
-            
-    {{ wish.review.title }}</a>
-    <br>
-    <a href="{% url 'remove_wishlist' wish.id %}">Delete From wishlist</a>
-    <br>
-    {{wish.review.purchase_link}}<br>
-    {{wish.book_marked_as_read}}<br>
-    <a href="{% url 'toggle_wishlist' wish.id %}">Mark as read</a><br>
+
+
+            {{ wish.review.title }}</a>
+        <br>
+        <a href="{% url 'remove_wishlist' wish.id %}">Delete From wishlist</a>
+        <br>
+        {{wish.review.purchase_link}}<br>
+        {{wish.book_marked_as_read}}<br>
+        <a href="{% url 'toggle_wishlist' wish.id %}">Mark as read</a><br>
     </tr>
     {% endfor %}
-    </table>
+</table>
 
 {% endblock content %}
