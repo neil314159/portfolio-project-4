@@ -21,8 +21,8 @@ class Category(models.Model):
         return self.name
 
 class Review(models.Model):
-    title = models.CharField(max_length=250, unique=False)
-    book_author = models.CharField(max_length=200)
+    title = models.CharField(max_length=250, unique=False, verbose_name="Book Title")
+    book_author = models.CharField(max_length=200, verbose_name="Book Author")
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="reviews"
     )
@@ -31,12 +31,12 @@ class Review(models.Model):
     # book_cover = CloudinaryField('image', default='placeholder')
     book_cover = CloudinaryField('image', blank=True, transformation={'width': '625', 'height': '1000', 'crop': 'fill', 'gravity': "auto"}, default=("https://res.cloudinary.com/dpsodnurd/image/upload/v1652284886/m6mvsjkb3eqpn2wczqsu.jpg"))
 
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1, verbose_name="Book Category")
     review_text = models.TextField()
     published_on = models.DateTimeField(auto_now_add=True)
     # star_rating = models.IntegerField()
     star_rating = models.IntegerField(choices=STAR_RATING, default=5)
-    purchase_link = models.URLField(max_length=400, blank=True)
+    purchase_link = models.URLField(max_length=400, blank=True, verbose_name="Purchase Link URL")
     
 
     class Meta:

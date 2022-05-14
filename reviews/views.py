@@ -59,7 +59,7 @@ class ReviewCreateView(LoginRequiredMixin, generic.CreateView):
 class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Review
     template_name = "review_edit.html"
-    fields = ['title', 'review_text', 'purchase_link', 'star_rating']
+    fields = ['title', 'book_author', 'review_text', 'category', 'book_cover','purchase_link', 'star_rating']
     # success_url = '/'
 
     def test_func(self):
