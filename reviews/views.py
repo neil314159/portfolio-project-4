@@ -85,8 +85,8 @@ class ProfileViewList(LoginRequiredMixin, generic.ListView):
     template_name = "profile_view.html"
 
     def get_queryset(self):
-        return Review.objects.filter(author=self.request.user).
-        order_by('-published_on')
+        return Review.objects.filter(
+            author=self.request.user).order_by('-published_on')
 
 
 class UserDeleteView(LoginRequiredMixin,
@@ -134,8 +134,9 @@ class CommentDeleteView(LoginRequiredMixin,
         """ Check for ownership first"""
         obj = self.get_object()
         """The comment can be deleted by author or by author of the review"""
-        return (obj.author == self.request.user) or
-        (obj.review.author == self.request.user)
+        return (obj.author == self.request.user) or (
+            obj.review.author == self.request.user
+            )
 
 
 class CommentUpdateView(LoginRequiredMixin,
@@ -181,11 +182,11 @@ def add_to_wishlist(request, id):
     try:
         bookreview = Review.objects.get(id=id)
     except:
-        """If not, return to the wishliost page """
+        """If not, return to the wishlist page """
         return HttpResponseRedirect(reverse_lazy('wishlist'))
     """Make sure the wishlist object does not exists already """
-    if WishlistItem.objects
-    .filter(author=request.user, review=bookreview).count() > 0:
+    if WishlistItem.objects.filter(author=request.user,
+                                   review=bookreview).count() > 0:
         return HttpResponseRedirect(reverse_lazy('wishlist'))
     """ Create the wishlist item and return the user to wishlist page"""
     WishlistItem.objects.create(author=request.user, review=bookreview)
@@ -212,8 +213,9 @@ class WishlistListView(LoginRequiredMixin, generic.ListView):
     template_name = 'wishlist_view.html'
     """ Return all objects belonging to user in reverse chronological order"""
     def get_queryset(self):
-        return WishlistItem.objects.filter(author=self.request.user)
-        .order_by('-published_on')
+        return WishlistItem.objects.filter(
+            author=self.request.user
+            ).order_by('-published_on')
 
 
 class WishListDeleteView(LoginRequiredMixin,
@@ -226,4 +228,3 @@ class WishListDeleteView(LoginRequiredMixin,
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
-
