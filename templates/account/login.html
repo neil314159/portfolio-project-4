@@ -1,7 +1,15 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 {% load i18n %}
 {% load account socialaccount %}
+
+{% block additional_styles %}
+<style>
+  body {
+    background-image: url('https://res.cloudinary.com/dpsodnurd/image/upload/v1652492708/jamie-street-Zqy-x7K5Qcg-unsplash_up1xut.jpg')!important;
+  }
+</style>
+{% endblock %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
@@ -40,7 +48,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form|crispy }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
