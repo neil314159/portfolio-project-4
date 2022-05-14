@@ -1,44 +1,70 @@
 {% extends "base.html" %}
+{% load static %}
 
+{% load cloudinary %}
 {% block content %}
 
-<!-- <div class="container-fluid">
 
-    <div class="row">
 
-       
-        <div class="col-12 mt-3 left">
-            <div class="row">
 
+
+
+
+<div class="container-sm my-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for review in review_list %}
+
+    
+
+        <div class="col">
+          <div class="card">
+            <img src="{{review.book_cover.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ review.title }}</h5>
+              <p class="card-text">{{review.book_author}}</p>
+              <p>{{review.get_star_rating_display}}</p>
+              
+              <a href="{{ review.get_absolute_url }}" class="btn btn-primary">Read Review</a>
             </div>
+          </div>
         </div>
-    </div>
+        {% endfor %}
+        
+      </div>
 
-</div> -->
-<table>
-{% for review in review_list %}
-<tr>
-    <a href="{{ review.get_absolute_url }}"> {{ review.title }}</a>
-<br>
-</tr>
-{% endfor %}
-</table>
-<div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
+      </div>
 
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      <!-- <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav> -->
+
+      <div class="pagination justify-content-center">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
         </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
+        <br><br>
+    </div>
 
 {%endblock%}

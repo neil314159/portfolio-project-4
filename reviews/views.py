@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 class ReviewList(generic.ListView):
     model = Review
     queryset = Review.objects.order_by("-published_on")
-    paginate_by = 10
+    paginate_by = 6
     template_name = "index.html"
 
 
@@ -83,7 +83,7 @@ class ReviewSearchResultsListView(generic.ListView):
     context_object_name = 'review_list'
     template_name = 'search_results.html'
 
-    paginate_by = 2
+    paginate_by = 6
 
     def get_queryset(self):
         query = self.request.GET.get('searchterm')
@@ -161,9 +161,12 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateV
 class CategoryList(generic.ListView):
     model = Category
 
+    
     # queryset = Review.objects.order_by("-published_on")
     template_name = "category.html"
     context_object_name = 'categorylist'
+
+   
 
     def get_queryset(self):
         content = {
