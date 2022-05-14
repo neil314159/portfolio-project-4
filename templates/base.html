@@ -21,7 +21,11 @@
   <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: #022a46;">
     <!-- <nav class="navbar navbar-expand-lg navbar-light bd-cyan-900"> -->
     <div class="container-lg">
-      <a class="navbar-brand" href="{% url 'home' %}">The Book Barn</a>
+      <!-- <a class="navbar-brand" href="{% url 'home' %}">The Book Barn</a> -->
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="https://res.cloudinary.com/dpsodnurd/image/upload/v1652468731/book-4986_zdlsii.svg" alt=""  height="24px" class="d-inline-block align-text-middle mx-1">
+        Book Barn
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -39,7 +43,7 @@
               </li> -->
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'publish_review' %}">+Publish</a>
+            <a class="nav-link" href="{% url 'publish_review' %}"> Add Review</a>
           </li>
 
 
