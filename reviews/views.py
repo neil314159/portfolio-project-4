@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 class ReviewList(generic.ListView):
     model = Review
     queryset = Review.objects.order_by("-published_on")
-    paginate_by = 2
+    paginate_by = 10
     template_name = "index.html"
 
 
