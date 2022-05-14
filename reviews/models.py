@@ -34,8 +34,8 @@ class Review(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
     review_text = models.TextField()
     published_on = models.DateTimeField(auto_now_add=True)
-    star_rating = models.IntegerField()
-    star_rating2 = models.IntegerField(choices=STAR_RATING, default=5)
+    # star_rating = models.IntegerField()
+    star_rating = models.IntegerField(choices=STAR_RATING, default=5)
     purchase_link = models.URLField(max_length=400, blank=True)
     
 
