@@ -53,6 +53,8 @@ class ReviewCreateView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+   
 
 class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Review
