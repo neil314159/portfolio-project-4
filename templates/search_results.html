@@ -10,25 +10,30 @@
 
 
 <!-- display search results in similar format to main page -->
-<div class="px-4 py-2 my-5 text-center">
-  <h3 class="display-5 fw-bold">Search Results</h3>
+<div class="container-sm py-4 bg-light">
+  <h3 class="display-5 fw-bold text-center">Search Results</h3>
 </div>
-<div class="container-sm my-4">
+<div class="container-sm py-4 bg-light">
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for review in review_list %}
     <div class="col">
-      <div class="card">
-        <img src="{{review.book_cover.url}}" class="card-img-top" alt="...">
+      <div class="card text-center">
+        <!-- show book cover and link to review page -->
+        <a href="{{ review.get_absolute_url }}"><img src="{{review.book_cover.url}}" class="card-img-top" alt="..."></a>
         <div class="card-body">
+          <!-- display book reveiw details -->
           <h5 class="card-title">{{ review.title }}</h5>
-          <p class="card-text">{{review.book_author}}</p>
-          <p>{{review.get_star_rating_display}}</p>
-          <a href="{{ review.get_absolute_url }}" class="btn btn-primary">Read Review</a>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">By {{review.book_author}}</li>
+            <li class="list-group-item">Reviewed by {{review.author}}</li>
+            <li class="list-group-item">Rating: {{review.get_star_rating_display}}</li>
+            <li class="list-group-item d-grid"><a href="{{ review.get_absolute_url }}" class="btn btn-primary">Read
+                Review</a></li>
+          </ul>
         </div>
       </div>
     </div>
     {% endfor %}
-
   </div>
 </div>
 
