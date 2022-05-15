@@ -18,7 +18,7 @@
                 <div class="row">
                     <!-- show book cover -->
                     <div class="col-md-6">
-                        <img src="{{ review.book_cover.url }}" class="img-fluid rounded-start" alt="...">
+                        <img src="{{ review.book_cover.url }}" class="img-fluid rounded-start" alt="book review cover">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
@@ -31,7 +31,7 @@
                                     href="{% url 'review_edit' review.id %}">Edit Review</a>
                             </div>
                             <div class="d-grid">
-                                <a class="btn btn-warning btn-lg mt-2 mb-2"
+                                <a class="btn btn-danger btn-lg mt-2 mb-2"
                                     href="{% url 'review_delete' review.id %}">Delete Review</a>
                             </div>
                             {%endif%}
@@ -44,7 +44,7 @@
                             {%endif%}
                             <!-- add to wishlist button -->
                             <div class="d-grid">
-                                <a class="btn btn-warning btn-lg mt-2 mb-2"
+                                <a class="btn btn-success btn-lg mt-2 mb-2"
                                     href="{% url 'add_wishlist' review.id %}">Add to Wishlist</a>
                             </div>
                             <!-- comments section -->
