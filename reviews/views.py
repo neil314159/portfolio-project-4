@@ -32,7 +32,7 @@ class ReviewCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = "review_form.html"
 
     def form_valid(self, form):
-        """ Set the author os the post to be the currently logged in user """
+        """ Set the author of the post to be the currently logged in user """
         form.instance.author = self.request.user
         return super().form_valid(form)
 
@@ -109,14 +109,10 @@ class CommentCreateView(LoginRequiredMixin, generic.CreateView):
     model = Comment
     fields = ['comment_text', ]
     template_name = "add_comment.html"
-    """ Redirect after successfully posting"""
-    # success_url = reverse_lazy(self.object.review.get_absolute_url)
+    """ Redirect to parent comment after successfully posting"""
     
-    
-    success_url = '/'
-
-    
-
+    def get_success_url(self):
+        return reverse_lazy('review_detail',args=(self.object.review.id,))
 
     def form_valid(self, form):
         """ The author of the comment is the currently logged in user"""
@@ -134,7 +130,10 @@ class CommentDeleteView(LoginRequiredMixin,
     model = Comment
     template_name = "comment_delete.html"
     fields = ['comment_text', ]
-    success_url = '/'
+    
+
+    def get_success_url(self):
+        return reverse_lazy('review_detail',args=(self.object.review.id,))
 
     def test_func(self):
         """ Check for ownership first"""
@@ -151,7 +150,9 @@ class CommentUpdateView(LoginRequiredMixin,
     model = Comment
     template_name = "comment_edit.html"
     fields = ['comment_text', ]
-    success_url = '/'
+    
+    def get_success_url(self):
+        return reverse_lazy('review_detail',args=(self.object.review.id,))
 
     def test_func(self):
         """ Check for permissions first"""
@@ -237,4 +238,3 @@ class WishListDeleteView(LoginRequiredMixin,
 
 class HomePageView(generic.TemplateView):
     template_name = 'home.html'
-

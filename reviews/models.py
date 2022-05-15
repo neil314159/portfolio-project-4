@@ -1,9 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from django_extensions.db.fields import AutoSlugField
 from django.urls import reverse
-from django.utils.text import slugify
+
 
 """ Emoji strings used for star ratings"""
 STAR_RATING = (
@@ -32,10 +31,7 @@ class Review(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="reviews"
     )
-    """ Unique slug to access articles"""
-    # slug = AutoSlugField(populate_from='title')
-    slug = models.SlugField(max_length=240,
-                            unique=True, editable=False, null=False)
+   
     """ Cloudinary field to store book cover"""
     book_cover = CloudinaryField('image', blank=True,
                                  transformation={
@@ -44,7 +40,7 @@ class Review(models.Model):
                                                  'crop': 'fill',
                                                  'gravity': "auto"
                                                  },
-                                 default=("https://res.cloudinary.com/dpsodnurd/image/upload/v1652284886/m6mvsjkb3eqpn2wczqsu.jpg"))
+                                 default=("https://res.cloudinary.com/dpsodnurd/image/upload/v1652618629/zhtctppqjky78q8h760n.jpg"))
     """ Link to book category"""
     category = models.ForeignKey(
                                  Category, on_delete=models.PROTECT,
@@ -68,21 +64,8 @@ class Review(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        """ Returns address of article joining PK and slug for uniqueness"""
-        # kwargs = {
-        #     'pk': self.id,
-        #     'slug': self.slug
-        # }
-        # return reverse('review_detail', kwargs=kwargs)
+        """ Returns address of article"""
         return reverse('review_detail', args=[str(self.id)])
-
-    def slugify_function(self, content):
-        return content.replace('_', '-').lower()
-
-    def save(self, *args, **kwargs):
-        value = self.title
-        self.slug = slugify(value, allow_unicode=True)
-        super().save(*args, **kwargs)
 
 
 class Comment(models.Model):
@@ -101,6 +84,10 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment text is: {self.comment_text}"
+    
+    # def get_absolute_url(self):
+    #     """ Returns address of article"""
+    #     return reverse('review_detail', args=[str(self.review.id)])
 
 
 class WishlistItem(models.Model):
