@@ -59,6 +59,7 @@ class ReviewDeleteView(LoginRequiredMixin,
     success_url = reverse_lazy('reviews')
 
     """ Check for ownership of review"""
+
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
@@ -75,7 +76,7 @@ class ReviewSearchResultsListView(generic.ListView):
         query = self.request.GET.get('searchterm')
         return Review.objects.filter(
             Q(title__icontains=query) | Q(review_text__icontains=query)
-            )
+        )
 
 
 class ProfileViewList(LoginRequiredMixin, generic.ListView):
@@ -110,9 +111,9 @@ class CommentCreateView(LoginRequiredMixin, generic.CreateView):
     fields = ['comment_text', ]
     template_name = "add_comment.html"
     """ Redirect to parent comment after successfully posting"""
-    
+
     def get_success_url(self):
-        return reverse_lazy('review_detail',args=(self.object.review.id,))
+        return reverse_lazy('review_detail', args=(self.object.review.id,))
 
     def form_valid(self, form):
         """ The author of the comment is the currently logged in user"""
@@ -130,10 +131,9 @@ class CommentDeleteView(LoginRequiredMixin,
     model = Comment
     template_name = "comment_delete.html"
     fields = ['comment_text', ]
-    
 
     def get_success_url(self):
-        return reverse_lazy('review_detail',args=(self.object.review.id,))
+        return reverse_lazy('review_detail', args=(self.object.review.id,))
 
     def test_func(self):
         """ Check for ownership first"""
@@ -141,7 +141,7 @@ class CommentDeleteView(LoginRequiredMixin,
         """The comment can be deleted by author or by author of the review"""
         return (obj.author == self.request.user) or (
             obj.review.author == self.request.user
-            )
+        )
 
 
 class CommentUpdateView(LoginRequiredMixin,
@@ -150,9 +150,9 @@ class CommentUpdateView(LoginRequiredMixin,
     model = Comment
     template_name = "comment_edit.html"
     fields = ['comment_text', ]
-    
+
     def get_success_url(self):
-        return reverse_lazy('review_detail',args=(self.object.review.id,))
+        return reverse_lazy('review_detail', args=(self.object.review.id,))
 
     def test_func(self):
         """ Check for permissions first"""
@@ -188,7 +188,7 @@ def add_to_wishlist(request, id):
     """ Checks the review exists to avoid accessing nonexistent objects"""
     try:
         bookreview = Review.objects.get(id=id)
-    except:
+    except BaseException:
         """If not, return to the wishlist page """
         return HttpResponseRedirect(reverse_lazy('wishlist'))
     """Make sure the wishlist object does not exists already """
@@ -205,7 +205,7 @@ def wishlist_toggle_read(request, id):
     """ Toggles the boolean value to show if a book is read/unread"""
     try:
         wishlist = WishlistItem.objects.get(id=id)
-    except:
+    except BaseException:
         return HttpResponseRedirect(reverse_lazy('wishlist'))
     wishlist.book_marked_as_read = not wishlist.book_marked_as_read
     wishlist.save()
@@ -219,10 +219,11 @@ class WishlistListView(LoginRequiredMixin, generic.ListView):
     context_object_name = 'wishlist'
     template_name = 'wishlist_view.html'
     """ Return all objects belonging to user in reverse chronological order"""
+
     def get_queryset(self):
         return WishlistItem.objects.filter(
             author=self.request.user
-            ).order_by('-published_on')
+        ).order_by('-published_on')
 
 
 class WishListDeleteView(LoginRequiredMixin,
@@ -235,6 +236,7 @@ class WishListDeleteView(LoginRequiredMixin,
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
+
 
 class HomePageView(generic.TemplateView):
     template_name = 'home.html'

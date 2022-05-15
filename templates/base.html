@@ -24,7 +24,6 @@
   <title>Book Barn</title>
 </head>
 <!-- main body set to min height for footer -->
-
 <body class="d-flex flex-column min-vh-100">
   <!-- navbar -->
   <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: #022a46;">
@@ -33,7 +32,7 @@
       <!-- home link and logo -->
       <a class="navbar-brand" href="{% url 'home' %}">
         <img src="https://res.cloudinary.com/dpsodnurd/image/upload/v1652468731/book-4986_zdlsii.svg" alt=""
-          height="24px" class="d-inline-block align-text-middle mx-1">
+          height="24" class="d-inline-block align-text-middle mx-1">
         Book Barn
       </a>
       <!-- collapsible elements for mobile menu -->
@@ -82,9 +81,10 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <!-- get list of categories from database -->
               {% for category in review_category_list %}
-              <a class="dropdown-item" href="/category/{{ category.name}}">
+              <li><a class="dropdown-item" href="/category/{{ category.name}}">
                 {{ category.name }}
               </a>
+            </li>
               {% endfor %}
             </ul>
           </li>
