@@ -60,7 +60,7 @@
                                     <h5 class="card-title">{{ comment.author}}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{comment.published_on}}
                                     </h6>
-                                    <p class="card-text"> {{ comment.comment_text }}.</p>
+                                    <p class="card-text"> {{ comment.comment_text }}</p>
                                     {% if user == comment.author %}
                                     <a href="{%url 'delete_comment' comment.id%}" class="card-link">Delete</a>
                                     <a href="{%url 'edit_comment' comment.id%}" class="card-link">Edit</a>

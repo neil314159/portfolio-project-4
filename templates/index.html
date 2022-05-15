@@ -5,12 +5,12 @@
 
 
 <!-- main review page loops thorugh all available reviews and paginates -->
-<div class="container-sm py-4 bg-light">
+<div class="container-sm p-4 bg-light">
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for review in review_list %}
     <div class="col">
       <div class="card text-center">
-        <a href="{{ review.get_absolute_url }}"><img src="{{review.book_cover.url}}" class="card-img-top" alt="..."></a>
+        <a href="{{ review.get_absolute_url }}"><img src="{{review.book_cover.url}}" class="card-img-top" alt="book cover image"></a>
         <div class="card-body">
           <h5 class="card-title">{{ review.title }}</h5>
           <ul class="list-group list-group-flush">
