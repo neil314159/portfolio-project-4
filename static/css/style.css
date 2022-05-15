@@ -1,5 +1,7 @@
+/* import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+/* set styling for footer */
 .footer {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -7,6 +9,7 @@
   color: #fff;
 }
 
+/* style social media links in footer */
 .btn-social {
   border-radius: 100%;
   display: inline-flex;
@@ -17,57 +20,14 @@
   align-items: center;
 }
 
-
-/* .card-signin {
-  border: 0;
-  border-radius: 1rem;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-}
-
-.card-signin .card-title {
-  margin-bottom: 2rem;
-  font-weight: 300;
-  font-size: 1.5rem;
-}
-
-.card-signin .card-body {
-  padding: 2rem;
-}
-
-.form-signin {
-  width: 100%;
-} */
-
-/* .form-signin .btn {
-  font-size: 80%;
-  border-radius: 5rem;
-  letter-spacing: .1rem;
-  font-weight: bold;
-  padding: 1rem;
-  transition: all 0.2s;
-} */
-
-/* .bg-image {
-  background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
-  background-size: cover;
-  background-position: center;
-} */
-
-/* #intro {
-  background-image: url('https://res.cloudinary.com/dpsodnurd/image/upload/v1652532181/susan-q-yin-2JIvboGLeho-unsplash_p4rsky.jpg');
-  height: 100vh;
-} */
-
-/* #reviewform {
-  background-image: url('https://res.cloudinary.com/dpsodnurd/image/upload/v1652532181/susan-q-yin-2JIvboGLeho-unsplash_p4rsky.jpg');
-  height: 100vh;
-} */
-
+/* set font for site */
 *{
   font-family: 'Lato';
 }
+
+/* set background image for use sitewide */
 body{
-  background-image: url("https://res.cloudinary.com/dpsodnurd/image/upload/v1652532181/susan-q-yin-2JIvboGLeho-unsplash_p4rsky.jpg")!important;
+  background-image: url("https://res.cloudinary.com/dpsodnurd/image/upload/v1652532186/alfons-morales-YLSwjSy7stw-unsplash_l2atpj.jpg")!important;
   background-repeat: no-repeat;
 background-attachment: fixed;
 background-size: cover;

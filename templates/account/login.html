@@ -6,7 +6,7 @@
 {% block content %}
 
 
-
+<!-- style login form with crispy forms and bootstrap -->
 
 <div class="container">
   <div class="row">
@@ -15,7 +15,6 @@
         <div class="card-body">
           <h3 class="text-center"><b>Log In</b></h3>
           <br />
-         
           <form class="form-signin" method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -23,21 +22,18 @@
               {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-              
               <div class="d-grid">
                 <button class="btn btn-primary btn-lg mt-3 mb-2" id="submitButton" type="submit">Submit</button>
               </div>
-             
               <div class="d-grid">
-                <a class="btn btn-warning btn-lg mt-2 mb-2" href="{% url 'account_reset_password' %}">Forgot Password?</a>
+                <a class="btn btn-warning btn-lg mt-2 mb-2" href="{% url 'account_reset_password' %}">Forgot
+                  Password?</a>
               </div>
             </div>
-       
-              <p class="text-center">
-                Don't have an account?
-                <a href="{{ signup_url }}"><b>Sign Up Now!</b></a>
-              </p>
-          
+            <p class="text-center">
+              Don't have an account?
+              <a href="{{ signup_url }}"><b>Sign Up Now!</b></a>
+            </p>
           </form>
         </div>
       </div>

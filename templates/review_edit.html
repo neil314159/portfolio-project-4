@@ -1,15 +1,12 @@
 {% extends 'base.html' %} 
 {% load crispy_forms_tags %}
-
 {% load static %}
-
-
 {% load cloudinary %}
 {% block content %}
 
 
 
-
+<!-- form to edit reviews, very similar to add review form -->
 <div id="reviewform"class="bg-image ">
     <div class="d-flex align-items-center" >
       <div class="container">
@@ -21,24 +18,17 @@
                 <form class="review-form" enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
                     <fieldset class="form-group">
-                      <br />
-                     
-                          
+                      <br /> 
                       {{ form|crispy }}
                     </fieldset>
                     <div class="form-group">
-                      
                       <div class="d-grid">
                         <button class="btn btn-primary btn-lg mt-3 mb-2" id="submitButton" type="submit">Submit</button>
                       </div>
-                     
                       <div class="d-grid">
                         <a class="btn btn-warning btn-lg mt-2 mb-2" href="{{ view.get_success_url }}">Cancel</a>
                       </div>
                     </div>
-               
-                     
-                  
                   </form>
               </div>
             </div>

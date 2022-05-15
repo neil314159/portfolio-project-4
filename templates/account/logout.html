@@ -7,7 +7,7 @@
 {% block content %}
 
 
-
+<!-- format logout form with bootstrap and crispy forms -->
 
 
 <div class="container">
@@ -17,29 +17,20 @@
         <div class="card-body">
           <h3 class="text-center"><b>Sign Out</b></h3>
           <br />
-         
           <form method="post" action="{% url 'account_logout' %}">
             {% csrf_token %}
             {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
             <h2 class="text-center">Are you sure you want to sign out?</h2>
-           
             <div class="form-group">
-              
               <div class="d-grid">
-                <a class="btn btn-warning btn-lg mt-2 mb-2"
-                    href="{% url 'reviews' %}">Cancel</a>
-            </div>
+                <a class="btn btn-warning btn-lg mt-2 mb-2" href="{% url 'reviews' %}">Cancel</a>
+              </div>
               <div class="d-grid">
                 <button class="btn btn-primary btn-lg mt-3 mb-2" id="submitButton" type="submit">Sign Out</button>
               </div>
-             
-              
             </div>
-       
-             
-          
           </form>
         </div>
       </div>

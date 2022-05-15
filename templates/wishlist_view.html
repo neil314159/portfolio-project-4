@@ -3,97 +3,88 @@
 
 {% block title%} Wishlist {%endblock title%}
 
-{% block form_css %}
 
-
-<style>
-    body {
-        background-image: url("https://res.cloudinary.com/dpsodnurd/image/upload/v1652532181/susan-q-yin-2JIvboGLeho-unsplash_p4rsky.jpg")!important;
-        background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-    }
-</style>
-{% endblock %}
 
 {% block content %}
 <div class="container-lg bg-light mt-3">
     <div class="row">
-      <div class="col h-100">
+        <div class="col h-100">
 
-<div class="px-4 py-2 my-5 text-center">
-    
-    <h3 class="display-5 fw-bold">Your Wishlist</h3>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Here you can view your wishlist, mark items as read, delete them from your list and purchase the book if a link has been supplied..</p>
-      
-    </div>
-  </div>
-<div class="container-sm my-4">
-    <div class="row">
-        <div class="col-12">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Status</th>
-                        <th scope="col">Review</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for wish in wishlist %}
-                    <tr>
-                        <td>
-                            {% if wish.book_marked_as_read %}
-                            Read
-                            {%else%}
-                            Unread
-                            {%endif%}
-                        </td>
-                        <td><a href="{{ wish.review.get_absolute_url }}">
-                            {% if wish.book_marked_as_read %}
-                            <del> {{ wish.review.title }}</a></del>
-                            {%else%}
-                            {{ wish.review.title }}</a>
-                            {%endif%}
-                        </td>
-                        <td>
-                            {% if wish.book_marked_as_read %}
-                            <del> {{ wish.review.book_author }}</a></del>
-                            {%else%}
-                            {{ wish.review.book_author }}</a>
-                            {%endif%}
-                            </td>
+            <div class="px-4 py-2 my-5 text-center">
+<!-- view user wishlist page -->
+                <h3 class="display-5 fw-bold">Your Wishlist</h3>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">Here you can view your wishlist, mark items as read, delete them from your list
+                        and purchase the book if a link has been supplied..</p>
 
-                        <td>
-                            
-                            <a href="{% url 'toggle_wishlist' wish.id %}" class="btn btn-primary">
-                                {% if wish.book_marked_as_read %}
-                            Unmark as Read
-                            {%else%}
-                           Mark as Read
-                            {%endif%}
-                            </a>
-                            <a href="{% url 'remove_wishlist' wish.id %}" class="btn btn-danger">Delete From
-                                Wishlist</a>
-                            {% if  wish.review.purchase_link %}
-                            <a href="{{wish.review.purchase_link}}" class="btn btn-success" target="_blank">Purchase Book</a>
-                            {%endif%}
+                </div>
+            </div>
+            <div class="container-sm my-4">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- generate table to display wishlist -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Review</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for wish in wishlist %}
+                                <tr>
+                                    <td>
+                                        <!-- toggle styyling for books that are read/unread -->
+                                        {% if wish.book_marked_as_read %}
+                                        Read
+                                        {%else%}
+                                        Unread
+                                        {%endif%}
+                                    </td>
+                                    <td><a href="{{ wish.review.get_absolute_url }}">
+                                            {% if wish.book_marked_as_read %}
+                                            <del> {{ wish.review.title }}</a></del>
+                                        {%else%}
+                                        {{ wish.review.title }}</a>
+                                        {%endif%}
+                                    </td>
+                                    <td>
+                                        {% if wish.book_marked_as_read %}
+                                        <del> {{ wish.review.book_author }}</a></del>
+                                        {%else%}
+                                        {{ wish.review.book_author }}</a>
+                                        {%endif%}
+                                    </td>
 
-                           
-
-
-                        </td>
-                    </tr>
-                    {%endfor%}
-                </tbody>
-            </table>
+                                    <td>
+                                        <!-- toggle button options for read/unread -->
+                                        <a href="{% url 'toggle_wishlist' wish.id %}" class="btn btn-primary">
+                                            {% if wish.book_marked_as_read %}
+                                            Unmark as Read
+                                            {%else%}
+                                            Mark as Read
+                                            {%endif%}
+                                        </a>
+                                        <!-- remove from wishlist -->
+                                        <a href="{% url 'remove_wishlist' wish.id %}" class="btn btn-danger">Delete From
+                                            Wishlist</a>
+                                            <!-- show purchase link if it exists -->
+                                        {% if  wish.review.purchase_link %}
+                                        <a href="{{wish.review.purchase_link}}" class="btn btn-success"
+                                            target="_blank">Purchase Book</a>
+                                        {%endif%}
+                                    </td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
-</div>
 </div>
 
 

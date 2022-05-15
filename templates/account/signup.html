@@ -7,7 +7,7 @@
 {% block content %}
 
 
-
+<!-- format signup form with crispy forms and bootstrap -->
 
 <div class="container">
   <div class="row">
@@ -16,7 +16,6 @@
         <div class="card-body">
           <h3 class="text-center"><b>Sign Up</b></h3>
           <br />
-         
           <form class="signup" method="POST" action="{% url 'account_signup' %}">
             {% csrf_token %}
             <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign

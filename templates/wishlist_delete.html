@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-
+<!-- form to confirm wishlist removal -->
 <div class="container">
   <div class="row">
     <div class="col-sm-10 col-md-10 col-lg-7 mx-auto">
@@ -8,15 +8,10 @@
         <div class="card-body">
           <h3 class="text-center"><b>Remove from wishlist?</b></h3>
           <br />
-         
             <form class="" method="POST">
               {% csrf_token %}
-             
-                  
                   <h2 class="text-center">Are you sure you want to remove this book from your wishlist?</h2>
-                 
-                  <div class="form-group">
-                    
+                  <div class="form-group">  
                     <div class="d-grid">
                       <a class="btn btn-warning btn-lg mt-2 mb-2"
                           href="{% url 'wishlist' %}">Cancel</a>
@@ -24,10 +19,7 @@
                     <div class="d-grid">
                       <button class="btn btn-danger btn-lg mt-3 mb-2" id="submitButton" type="submit">Remove</button>
                     </div>
-                   
-                    
                   </div>
-            
           </form>
         </div>
       </div>

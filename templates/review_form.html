@@ -1,29 +1,10 @@
 {% extends 'base.html' %} 
-
-
 {% load crispy_forms_tags %}
-
 {% load static %}
-
-
 {% load cloudinary %}
-
-{% block form_css %}
-
-
-<style>
-    body {
-        background-image: url("https://res.cloudinary.com/dpsodnurd/image/upload/v1652532186/alfons-morales-YLSwjSy7stw-unsplash_l2atpj.jpg")!important;
-        background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-    }
-</style>
-{% endblock %}
-
-
 {% block content %}
 
+<!-- form to add new review -->
 <div class="container">
   <div class="row">
     <div class="col-sm-10 col-md-10 col-lg-7 mx-auto">
@@ -31,28 +12,23 @@
         <div class="card-body">
           <h3 class="text-center"><b>Create New Book Review</b></h3>
           <br />
-         
             <form class="review-form" enctype="multipart/form-data" method="POST">
               {% csrf_token %}
               <fieldset class="form-group">
                 <br />
-               
-                    
+               <!-- inject crispy forms -->
                 {{ form|crispy }}
               </fieldset>
               <div class="form-group">
-                
+                <!-- add review -->
                 <div class="d-grid">
                   <button class="btn btn-primary btn-lg mt-3 mb-2" id="submitButton" type="submit">Submit</button>
                 </div>
-               
+               <!-- cancel and return to reviews -->
                 <div class="d-grid">
                   <a class="btn btn-warning btn-lg mt-2 mb-2" href="{% url 'reviews' %}">Cancel</a>
                 </div>
               </div>
-         
-               
-            
             </form>
           </form>
         </div>
@@ -60,18 +36,6 @@
     </div>
   </div>
 </div>
-
-               
-
-
-
-  
-  
- 
-                   
-                        
- 
-
 
 
 {% endblock content %}
