@@ -2,7 +2,8 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    path("", views.ReviewList.as_view(), name="home"),
+    path("", views.HomePageView.as_view(), name="home"),
+    path("reviews/", views.ReviewList.as_view(), name="reviews"),
     path('myprofile/', views.ProfileViewList.as_view(), name='myprofile'),
     path('wishlist/', views.WishlistListView.as_view(), name='wishlist'),
     path('wishlist/remove/<int:pk>', views.WishListDeleteView.as_view(), name='remove_wishlist'),

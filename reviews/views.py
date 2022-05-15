@@ -56,7 +56,7 @@ class ReviewDeleteView(LoginRequiredMixin,
     """ Delete a review from the site"""
     model = Review
     template_name = 'review_delete.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('reviews')
 
     """ Check for ownership of review"""
     def test_func(self):
@@ -234,3 +234,7 @@ class WishListDeleteView(LoginRequiredMixin,
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
+
+class HomePageView(generic.TemplateView):
+    template_name = 'home.html'
+
