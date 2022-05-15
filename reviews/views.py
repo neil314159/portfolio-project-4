@@ -30,7 +30,6 @@ class ReviewCreateView(LoginRequiredMixin, generic.CreateView):
     fields = ['title', 'book_author', 'review_text', 'category',
               'book_cover', 'purchase_link', 'star_rating']
     template_name = "review_form.html"
-    # success_url = '/'
 
     def form_valid(self, form):
         """ Set the author os the post to be the currently logged in user """
@@ -58,6 +57,7 @@ class ReviewDeleteView(LoginRequiredMixin,
     model = Review
     template_name = 'review_delete.html'
     success_url = reverse_lazy('home')
+
     """ Check for ownership of review"""
     def test_func(self):
         obj = self.get_object()
@@ -110,7 +110,13 @@ class CommentCreateView(LoginRequiredMixin, generic.CreateView):
     fields = ['comment_text', ]
     template_name = "add_comment.html"
     """ Redirect after successfully posting"""
-    success_url = reverse_lazy('home')
+    # success_url = reverse_lazy(self.object.review.get_absolute_url)
+    
+    
+    success_url = '/'
+
+    
+
 
     def form_valid(self, form):
         """ The author of the comment is the currently logged in user"""

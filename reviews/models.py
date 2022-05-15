@@ -33,6 +33,7 @@ class Review(models.Model):
         User, on_delete=models.CASCADE, related_name="reviews"
     )
     """ Unique slug to access articles"""
+    # slug = AutoSlugField(populate_from='title')
     slug = models.SlugField(max_length=240,
                             unique=True, editable=False, null=False)
     """ Cloudinary field to store book cover"""
@@ -73,6 +74,10 @@ class Review(models.Model):
             'slug': self.slug
         }
         return reverse('review_detail', kwargs=kwargs)
+        # return reverse('review_detail', args=[str(self.slug)])
+
+    def slugify_function(self, content):
+        return content.replace('_', '-').lower()
 
     def save(self, *args, **kwargs):
         value = self.title

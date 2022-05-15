@@ -1,14 +1,33 @@
 {% extends "base.html" %}
 
+
+
+{% block form_css %}
+
+
+<style>
+    body {
+        background-image: url("https://res.cloudinary.com/dpsodnurd/image/upload/v1652532186/alfons-morales-YLSwjSy7stw-unsplash_l2atpj.jpg")!important;
+        background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 
 
+
+<div class="container-lg bg-light mt-3">
+  <div class="row">
+    <div class="col h-100">
 
 
 <div class="px-4 py-2 my-5 text-center">
     
     <h3 class="display-5 fw-bold">Manage your profile</h3>
-    <div class="col-lg-6 mx-auto">
+    <div class="col-lg-9 mx-auto">
       <p class="lead mb-4">Here you can change your password, update your email preferences or delete your account.</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         
@@ -23,7 +42,7 @@
   <div class="px-4 py-2 my-5 text-center">
     
     <h4 class="display-5 fw-bold">View Your Articles</h4>
-    <div class="col-lg-6 mx-auto">
+    <div class="col-lg-9 mx-auto">
       <p class="lead mb-4">This is a list of all reviews you have written.</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         
@@ -41,6 +60,9 @@
     </div>
   </div>
 
+</div>
+</div>
+</div>
 
   
 
