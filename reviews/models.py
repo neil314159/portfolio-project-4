@@ -84,7 +84,7 @@ class Comment(models.Model):
         ordering = ["published_on"]
 
     def __str__(self):
-        return f"Comment text is: {self.comment_text}"
+        return self.comment_text
 
 
 class WishlistItem(models.Model):
