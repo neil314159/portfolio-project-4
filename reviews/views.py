@@ -123,7 +123,7 @@ class CommentCreateView(LoginRequiredMixin, generic.CreateView):
         form.instance.author = self.request.user
         """ The current review is found and attached to the comment"""
         queryset = Review.objects.all()
-        current_review = get_object_or_404(queryset, slug=self.kwargs['slug'])
+        current_review = get_object_or_404(queryset, id=self.kwargs['id'])
         form.instance.review = current_review
         return super().form_valid(form)
 

@@ -69,12 +69,12 @@ class Review(models.Model):
 
     def get_absolute_url(self):
         """ Returns address of article joining PK and slug for uniqueness"""
-        kwargs = {
-            'pk': self.id,
-            'slug': self.slug
-        }
-        return reverse('review_detail', kwargs=kwargs)
-        # return reverse('review_detail', args=[str(self.slug)])
+        # kwargs = {
+        #     'pk': self.id,
+        #     'slug': self.slug
+        # }
+        # return reverse('review_detail', kwargs=kwargs)
+        return reverse('review_detail', args=[str(self.id)])
 
     def slugify_function(self, content):
         return content.replace('_', '-').lower()

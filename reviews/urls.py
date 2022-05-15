@@ -11,13 +11,13 @@ urlpatterns = [
     path('wishlist/toggle/<int:id>', views.wishlist_toggle_read, name='toggle_wishlist'),
     path('deleteprofile/<int:pk>', views.UserDeleteView.as_view(), name='deleteprofile'),
     path('search/', views.ReviewSearchResultsListView.as_view(), name='search_results'),
-    path('<slug:slug>/edit/', views.ReviewUpdateView.as_view(), name="review_edit"),
+    path('<int:pk>/edit/', views.ReviewUpdateView.as_view(), name="review_edit"),
     path('comment/<int:pk>/delete', views.CommentDeleteView.as_view(), name='delete_comment'),
     path('comment/<int:pk>/edit', views.CommentUpdateView.as_view(), name='edit_comment'),
-    path('<slug:slug>/delete/', views.ReviewDeleteView.as_view(), name="review_delete"),
+    path('<int:pk>/delete/', views.ReviewDeleteView.as_view(), name="review_delete"),
     path('add/', views.ReviewCreateView.as_view(), name='publish_review'),
-    path('<slug:slug>/addcomment/', views.CommentCreateView.as_view(), name='add_comment'),
+    path('<int:id>/addcomment/', views.CommentCreateView.as_view(), name='add_comment'),
     path('category/<category>', views.CategoryList.as_view(), name='category'),
-    path('review/<str:slug>-<int:pk>/', views.ReviewDetail.as_view(), name='review_detail'),
+    path('review/<int:pk>/', views.ReviewDetail.as_view(), name='review_detail'),
     
 ]
