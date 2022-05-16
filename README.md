@@ -54,15 +54,27 @@ View information about testing in the [testing.md file here](TESTING.md)
 
 ### Scope
 
+After creating the Epics and translating them into User Stories, this now leads to a list of concrete features to implement
+* Reviews - can be viewed by all users
+* Reviews - can be created, viewed, edited and deleted by users
+* Categories - can be created by an administrator and applied by users to their reviews
+* Comments - can be created, viewed, edited and deleted by users
+* Wishlist - items can be added, removed and edited by users
+* Users - can register, login, change password and reset password
+* Users - can search the site
+* Users - all operations can only be carried out with proper permissions
+
 ### Structure
 
 #### Design Structure - Site layout
+* A simple and straightforward site layout was adopted to make the site easy for users to navigate.
+* All forms for creating, editing, viewing and deleting information are simply presented and easy to understand.
 
 #### Information Structure - Database Models
 
-In order for the site to provide full functionality to the user, a nuber of custom models must be defined. These models reflect the information that must be stored and used by the site. In this case, we have a custom model representing a book review, which includes information such as title, author, the author of the review, the rating and text content of the review and the date the review was published. There is also a Cloudinary field which accepts image uplaods to store tohe cover image of the book. The review model links to the standard user model provided by Django, representing registered users on the site. Another simple model was created to represent Categories, and each review has a Category field. This also means the administrator can define new categories in the site's admin section. There is a model which stores user comments, each comment linking to a review and a user and containing comment text. Finally, there is a wishlist item  whic stores a book review, a user and a Boolean value indicating if the book has been read or not.
+In order for the site to provide full functionality to the user, a number of custom models must be defined. These models reflect the information that will be stored and used by the site. In this case, we have a custom model representing a book review, which includes information such as title, author, the author of the review, the rating and text content of the review and the date the review was published. There is also a Cloudinary field which accepts image uploads to store the cover image of the book. The review model links to the standard user model provided by Django, representing registered users on the site. Another simple model was created to represent Categories, and each review has a Category field. This means the administrator can define new categories in the site's admin section. There is a model which stores user comments, each comment linking to a review and a user and containing comment text. Finally, there is a wishlist item  which stores a book review, a user and a Boolean value indicating if the book has been read or not.
 
-Below you can see the full schmema for the whole site, including the standard user models, and there is also an excerpt of th custom models found in the reviews app of the project.These images were generated using the Django-extensions package, which generates a .dot file which can then be copied into [this site](https://dreampuf.github.io/GraphvizOnline/) to generate a downloadable image.
+Below you can see the full schema for the whole site, including the standard user models, and there is also an excerpt of the custom models found in the reviews app of the project. These images were generated using the Django-extensions package, which creates a .dot file which can then be copied into [this site](https://dreampuf.github.io/GraphvizOnline/) to generate a downloadable image.
 
 ![cropped model](./media/readme/models/cropped_model.png) 
 ![full model](./media/readme/models/model.png)
@@ -70,7 +82,7 @@ Below you can see the full schmema for the whole site, including the standard us
 ### Skeleton
 
 #### Wireframes
-Balsamiq was used to create the wireframes for this project. The initial layout of the site remained largely the same during the development process, except for the profile page and the wishlist being seperated into two pages rather than combined into one. The wireframe for the review index page was also used for the search results and category view pages as they are functionally very similar.
+Balsamiq was used to create the wireframes for this project. The initial layout of the site remained largely the same during the development process, except for the profile page and the wishlist being separated into two pages rather than combined into one. The wireframe for the review index page was also used for the search results and category view pages as they are functionally very similar.
 
 * Homepage
 ![homepage](/media/readme/wireframes/homepage.png)
@@ -123,7 +135,7 @@ This form allows the user to create their own review for publication on the site
 ![index](/media/readme/features/create_review.png)
 
 #### Book Review Card
-This UI element gathers all the data about a book and presents it to the user in a variety of contexts, for example in the reviews index, in the search page, in the category listing. It shows the book cover, the author and title of the book, the reviewer and the number of stars the reviewer gave the book. Both the cover image and the Read Reiew button provide a link to a detailed view of the book review.
+This UI element gathers all the data about a book and presents it to the user in a variety of contexts, for example in the reviews index, in the search page, in the category listing. It shows the book cover, the author and title of the book, the reviewer and the number of stars the reviewer gave the book. Both the cover image and the Read Review button provide a link to a detailed view of the book review.
 
 ![index](/media/readme/features/book_card.png)
 
