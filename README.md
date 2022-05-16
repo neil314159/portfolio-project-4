@@ -39,18 +39,70 @@ View information about testing in the [testing.md file here](TESTING.md)
 * [Credits](#credits)
 * [Acknowledgements](#acknowledgements)
 
-## Planning
-
-### Goals
-* To present a simple, easy-to-grasp text interface with a clear logical flow
-* Make the purpose and operation of the software clear 
-* Provide feedback and guidance on user actions
-* Gracefully handle user input and ensure data is recorded correctly
-* Operate continuously in a loop without crashing
 
 ## UX
 
 ### Strategy
+
+The overall aim of the project is to develop a platform that allows users to create and share book reviews with others around the world.
+
+* Site Goals
+    * To enable users to write their own reviews and publish them online
+    * To let users browse exsiting reviews for reading ideas
+    * To have a design with pleasing visuals and functional layout
+
+* User Goals
+The ideal user is excited about reading, looking for new books to read, willing to share their recommendations and wants to interact with with other readers.
+
+
+#### Epics
+
+At the beginning of the project, ten Epics were created and can be viewed at the [Kanban board here](https://github.com/neil314159/portfolio-project-4/projects/1).
+* Installation and Setup
+* Profiles
+* User Authentication
+* Reviews
+* Comments
+* Wishlist
+* Search
+* Site Interface
+* Admin Features
+* Testing Strategy
+
+#### Translation to User Stories
+
+1. Installation and Setup
+    * 
+    * 
+    * 
+1. Profiles
+1. User Authentication
+1. Reviews
+1. Comments
+1. Wishlist
+1. Search
+1. Site Interface
+1. Admin Features
+1. Testing Strategy
+
+
+#### Agile Management
+Throughout the development process, these epics and user stories were managed using the Kanban Board functionality built into Github. The Epics were created, developed into user stories using the Project interface in Github. The User Stories were created as issues with attached task lists and acceptance criteria, and were moved between columsn to designate progress on a particular task. Once an issue was completed it was marked. The milestone tracker was also used to indicate overall progress and the project backlog.
+
+The label function for Github issues was used to assign Must Have, Could Have and Should Have status, and unfinished tasks were assigned Won't Have at the end of the sprint. Labels were also sued to indicate the number of user points assigned to each User Story.
+
+<br>
+
+![points chart](./media/readme/agile/Chart.png)
+
+<br>
+
+![kanban](./media/readme/agile/kanban_board.png)
+
+<br>
+
+![milestone](./media/readme/agile/milestone.png)
+
 
 ### Scope
 
@@ -184,15 +236,6 @@ This footer appears at the bottom of every page on the site and provides easy ac
 
 
 
-
-
-
-### Class-Based Views
-* Django provides an implementation of generic class Views for Creating, Viewing, Updating and Deleting objects. If your model inherits from these classes, then the forms required for these user interactions are automatically generated and implemented, and the developer just has to provide a template to style the output and user interaction of these forms.
-
-
-
-
 ## Future Features
 
 There a number of potentially beneficial user features which were not implemented in this sprint. You can view the Kanban board for this project [here](https://github.com/neil314159/portfolio-project-4/projects/1) to see which items were left to be developed at a future date.
@@ -203,8 +246,6 @@ There a number of potentially beneficial user features which were not implemente
 * Book of the week - a nice feature for the site administrator would be the ability to select and highlight a certain book review on the static home page for greater visibility.
 * User messages - commenting has been implemented already but the ability for users to message each other directly would be beneficial and engaging.
 * Shared wishlists - since wishlists already exist for users, they could potentially share them with other users on the site for reading recommendations.
-
-
 
 
 
