@@ -48,76 +48,83 @@ View information about testing in the [testing.md file here](TESTING.md)
 * Gracefully handle user input and ensure data is recorded correctly
 * Operate continuously in a loop without crashing
 
-### Logical Flow
+## UX
 
-I created this chart to map out the flow of control through the program and help me understand where to direct the various functions.
-<br>
+### Strategy
 
-![dashboardtitle](/docs/Flowchart.png)
+### Scope
 
-# Features
+### Structure
 
-## Main Menu
-This is the home screen and main menu
-* Simple, numbered menu options.
-* Colourful ASCII art title.
-* Only 1-5 accepted from keyboard, all other input is rejected.  
-  
-![main menu screenshot](docs/mainmenu.png)
+### Skeleton
 
-## User Guide 
-* Gives the user an overview of the function of the software
-* Explains menu options
-* Coloured text to highlight information
-* User can easily return to main menu.
-
-![user guide screenshot](docs/userguide.png)
-
-## View At Risk Patients  
-* Shows a table view of patient records
-* Sorted by vaccine status and then by age to determine risk
-* Contrast colours highlight actionable cases
-* Menu options to go forward and back through pages of records
-  
-![at risk patients screenshot](docs/riskpatients.png)
-
-## View All Patients  
-* Alphabetically sorted list of all patients
-* Offers user option to edit or delete a record
-* User types in number of record from left-hand column and can then make and edit or deletion
-* Software confirms whether or not you want to make these changes, if not you return to the main menu
-  
-![all patients screenshot](docs/allpatients.png)
-
-## Add New Patient  
-* List of guided questions to input new patient
-* Answers validated to prevent incorrect data
-* Some questions are sequential, so if you missed first vaccine you won't be asked about follow-up shots, as they are dependent on receiving the first one.
-* Message displayed on successful addition of patient. In case of a problem with the API, an error message will be displayed.
-  
-![add new patient](docs/addnew.png)
-
-## Progress Dashboard  
-* Bar chart showing how many of the current patients have been vaccinated to each level.
-* Will update as patient records change over time.
-* Created using external library.
-  
-![Welcome screen screenshot](docs/dashboard.png)
-
-## Update Patient 
-* Select a current patient and update their vaccine history through series of prompts.
-* Similar to when creating new user, questions are nested.
-  
-![Welcome screen screenshot](docs/update.png)
-
-## Delete Patient 
-* User selects patient via number on left-hand column
-* The system confirms that a deletion is requested, otherwise returns to the main  menu
-* A confirmation is displayed if the deletion was effective.
-  
-![Welcome screen screenshot](docs/delete.png)
+### Surface
 
 
+
+## Features
+
+#### Static Homepage
+The homepage explains the purpose of the site to new users, and explains that they can register for an account for extra advantages, or else start browsing the site directly.
+
+![homepage](/media/readme/features/screenshotfrontpage.png)
+
+#### Navbar
+The navbar appears at the top of every page on the site, giving users access to every section of the site. Only logged in users will see the links for adding a review, the profile page and the wishlist page. Logged out users will see links to register and login instead of the logout link here.
+
+![navbar](/media/readme/features/navbar.png)
+
+#### Dropdown and Search Menu
+The navbar appears at the top of every page on the site, giving users access to every section of the site. Only logged in users will see the links for adding a review, the profile page and the wishlist page. Logged out users will see links to register and login instead of the logout link here.
+
+![navbar](/media/readme/features/dropdown_search.png)
+
+#### Reviews Index
+r
+
+![index](/media/readme/features/indexpage.png)
+
+#### Create Review
+r
+
+![index](/media/readme/features/create_review.png)
+
+#### Book Review Card
+r
+
+![index](/media/readme/features/book_card.png)
+
+#### Login/Signup
+r
+
+![index](/media/readme/features/signup.png)
+
+#### Search and Category Views
+r
+
+![index](/media/readme/features/search_results.png)
+
+#### Profile Page
+r
+
+![index](/media/readme/features/profile.png)
+
+#### Wishlist Page
+r
+
+![index](/media/readme/features/wishlist.png)
+
+#### Comments
+r
+
+![index](/media/readme/features/comments.png)
+
+#### Footer
+r
+
+![index](/media/readme/features/footer.png)
+
+Wishlist Page
 
 ## OOP Principles
 
@@ -139,12 +146,11 @@ There a number of potentially beneficial user features which were not implemente
 * User messages - commenting has been implemented already but the ability for users to message eac other directy would be beneficial and engaging.
 * Shared wishlists - since wishlists already exist for users, they could potentially share them with other users on the site for reading recommendations.
 
-### XXX
-* ccc
 
 
 
-#### Technologies Used
+
+## Technologies Used
 
 * Python
     * These Python modules were used for the project:
@@ -217,7 +223,9 @@ A comprehensive manual testing plan was used for this project. A full descriptio
     * Solution: After reading and watching some tutorials on how to properly reference attached objects, I was able to fix the get_success_url function and properly redirect the user once they had written or edited a comment.
 
 
+## Security
 
+When this project was initally created, the secret key included with the Django installation was commited to Github accidentally. This key was quickly changed and hidden through the environment variables in env.py before deployment to Heroku.
 
 
 
