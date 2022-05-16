@@ -56,9 +56,21 @@ View information about testing in the [testing.md file here](TESTING.md)
 
 ### Structure
 
+#### Design Structure - Site layout
+
+#### Information Structure - Database Models
+
+In order for the site to provide full functionality to the user, a nuber of custom models must be defined. These models reflect the information that must be stored and used by the site. In this case, we have a custom model representing a book review, which includes information such as title, author, the author of the review, the rating and text content of the review and the date the review was published. There is also a Cloudinary field which accepts image uplaods to store tohe cover image of the book. The review model links to the standard user model provided by Django, representing registered users on the site. Another simple model was created to represent Categories, and each review has a Category field. This also means the administrator can define new categories in the site's admin section. There is a model which stores user comments, each comment linking to a review and a user and containing comment text. Finally, there is a wishlist item  whic stores a book review, a user and a Boolean value indicating if the book has been read or not.
+
+Below you can see the full schmema for the whole site, including the standard user models, and there is also an excerpt of th custom models found in the reviews app of the project.These images were generated using the Django-extensions package, which generates a .dot file which can then be copied into [this site](https://dreampuf.github.io/GraphvizOnline/) to generate a downloadable image.
+
+![cropped model](./media/readme/models/cropped_model.png) 
+![full model](./media/readme/models/model.png)
+
 ### Skeleton
 
-Balsamiq was used to create the wireframes for this project. The initial layout of the site remained largely the same during the development process, except for the profile page and the wishlist being sepreated into two pages rather than combined into one. The wireframe for the review index page was also used for the search results and category view pages as they are functionally very similar.
+#### Wireframes
+Balsamiq was used to create the wireframes for this project. The initial layout of the site remained largely the same during the development process, except for the profile page and the wishlist being seperated into two pages rather than combined into one. The wireframe for the review index page was also used for the search results and category view pages as they are functionally very similar.
 
 * Homepage
 ![homepage](/media/readme/wireframes/homepage.png)
@@ -73,12 +85,15 @@ Balsamiq was used to create the wireframes for this project. The initial layout 
 ![homepage](/media/readme/wireframes/profile_page.png)
 
 ### Surface
+
 * Fonts
+The Lato font was chosen for this project as it is extremely legible and suitable for a literary site, but also more visually interesting than the standard Bootstrap font of Helvetica Neue.
 
 * Images
+User feedback indicated a preference for background pictures rather than the plain coloured backgrounds I initially used. Pictures were chosen from Unsplash to be colourful and well-textured to draw the interest of the users.
 
 * Colours
-
+A simple and clean colour palette was chosen using the website [Coolers](http://coolors.co). A more muted set of colours was used because there were also eye-catching photos being used, as well as book covers, and too much visual information could distract the user.
 
 ## Features
 
