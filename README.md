@@ -20,12 +20,10 @@ The project demonstrates working CRUD implementations for a number of data model
 
 <br>
 
-
-
+View information about testing in the [testing.md file here](TESTING.md)
 
 <br>
-![intro](/docs/new.gif)
-<br>
+
 ## Table of Contents
 
 * [Planning](#planning)
@@ -121,18 +119,25 @@ This is the home screen and main menu
 
 
 
-## OOP and CRUD Functionality
+## OOP Principles
 
-This project was designed using Object Oriented Principles in mind. Here is an overview of the classes used to create the site:
-### Clinic class
-* This is the overall management class for the app, it takes in the data on loading, and also presents menu options to the user. It has helper functions to display data, clear the screen, create and edit patient records. It also sorts and filters the data in order to present it to the user.
-### Patient class
-* This represents the individual patient kept track of by the clinic. This class has a unique 6 digit ID, and attributes showing personal details and vaccination records. It has a method which calculates their age based on today's date and returns it to the Clinic class for sorting.
-### Table View class
-* The main functionality of this program is in presenting pages of patient records to the user. Rather than printing long lists which require scrolling, I wanted to allow the user to page forward and back through a table. This class takes in data and prints out a slice of it in table form based on which page number is currently selected. This allows the program menu to show data and options that properly persist over time rather than being reset.
+This project made use of Object Oriented Programming principles in two main ways:
+### Class-Based Views
+* Django provides an implementation of generic class Views for Creating, Viewing, Updating and Deleting objects. If your model inherits from these classes, then the forms required for these user interactions are automatically generated and implemented, and the developer just has to provide a template to style the output and user interaction of these forms.
+
+
 
 
 ## Future Features
+
+There a number of potentially beneficial user features which were not implemented in this sprint. You can view the Kanban board for this project [here](https://github.com/neil314159/portfolio-project-4/projects/1) to see which items were left to be devleoped at a future date.
+* Book Cover API - rather than having to manually search for a book cover image, this could search and retrive the image for the user using the Google Books or Goodreads API.
+* AJAX editing -  In order to have instant, on-page editing for categories, reviews and comments, it is necessary to implement AJAX using Javascript so that the user no longer has to refresh the page to see the results of their actions. It is also possible to use the HTMX library with Django to achieve similar functionality.
+* Night mode - Some users prefer to able to chnage the colour scheme on a site themselves, and this feature would allow them a certain level of control.
+* Social login - it is possible to use the AllAuth package to implement logins using social account credentials such as a Facebook or Google account. Technically this is not very difficult using third-party libraries, but your site must often be verified and approved by the API providers before you can use their credentials to log in users.
+* Book of the week - a nice feature for the site administrator would be the ability to select and highlight a certain book review on the static home page for greater visibility.
+* User messages - commenting has been implemented already but the ability for users to message eac other directy would be beneficial and engaging.
+* Shared wishlists - since wishlists already exist for users, they could potentially share them with other users on the site for reading recommendations.
 
 ### XXX
 * ccc
@@ -197,7 +202,6 @@ This project was designed using Object Oriented Principles in mind. Here is an o
 
 ## Testing
 
-## Testing Strategy
 
 A comprehensive manual testing plan was used for this project. A full description of all of the procedures and methods used can be found in the [testing.md file here](TESTING.md). All functionality relating to user actions and CRUD operations was carefully examined. Wherever possible, testing was also related back to the acceptance criteria in the orginal Epics defined before development began.
 
@@ -205,8 +209,8 @@ A comprehensive manual testing plan was used for this project. A full descriptio
 ## Notable Bugs
 
 1. Slug Creation
-    * Problem: The use of a Django slug is often desirable for publishing articles on a website as it helps to provide a more user-readable URL. In this project, I encountered problems in trying to ensure that no two articles with the same title could ever prodiuce an identical slug. Initially I used a third party component from the Django Extensions package, which was able to create a unique slug but failed when the title had more than one world. I then reverted to generating the slug manually but could not relaibaly ensure that the same slug would not exist for two reviews of the same book.
-    * Solution: removed the slug from the Model used to represent the book reviews in the databse and swicthed to using an Int-based ID identifier isntead. This is slightly less readable but is very effective at guaranteeing uniqueness. In the future it would be possible to switch to a UUID-based identifier instead.
+    * Problem: The use of a Django slug is often desirable for publishing articles on a website as it helps to provide a more user-readable URL. In this project, I encountered problems in trying to ensure that no two articles with the same title could ever prodiuce an identical slug. Initially I used a third party component from the Django Extensions package, which was able to create a unique slug but failed when the title had more than one world. I then reverted to generating the slug manually but could not reliably ensure that the same slug would not exist for two reviews of the same book.
+    * Solution: I removed the slug from the Model used to represent the book reviews in the database and switched to using an Int-based ID identifier instead. This is slightly less readable but is very effective at guaranteeing uniqueness. In the future it would be possible to switch to a UUID-based identifier instead.
 
 2. Success URLs
     * Problem: For most of the project I encountered issues when supplying a Success URL for the Comment Model. This is the address used to redirect to after the comment is created, and I had difficulty in properly capturing the ID of the review connected with the comment.
