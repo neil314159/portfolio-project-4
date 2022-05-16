@@ -1,5 +1,23 @@
 # Testing Report
 
+
+  * [Manual Testing](#manual-testing)
+  * [HTML/CSS Validation](#html-css-validation)
+  * [Python Validation](#python-validation)
+  * [Accessibility](#accessibility)
+  * [Navigation](#navigation)
+  * [Browse Reviews](#browse-reviews)
+  * [Reviews CRUD Functionality](#reviews-crud-functionality)
+  * [Comments CRUD Functionality](#comments-crud-functionality)
+  * [Wishlist CRUD Functionality](#wishlist-crud-functionality)
+  * [User Account](#user-account)
+  * [Search](#search)
+  * [Mobile](#mobile)
+  * [User Stories](#user-stories)
+  * [Third Party Testing](#third-party-testing)
+    + [Unit Testing](#unit-testing)
+
+
 ## Manual Testing
 
 ## HTML/CSS Validation
@@ -145,5 +163,19 @@ It is important to properly verify that the site works at multiple resolutions o
 
 ## Third Party Testing
 
-## Unit Testing
+A user was recruited to test out the operation of the site while being observed. The user was unfamilar with the site, ans was requested to sign up for an account, browse the site and post a review on the site. They also added a book to their wishlist and lefta. comment on a review. After this test was finsihed, the user was also asked for any feedback they had on the functionality and design of the project.
+
+A number of observations arose from this testing session:
+* The user preferred the pages with colourful photo backgrounds compared to the original minimalist design I had used for most of the pages.
+* The user had no problem navigating the site using the links in the header section.
+* The original design for the book review form had many of the buttons the same colour, for example the buttons to edit and delete a review were both yellow. The colours were changed to make this less confusing and differentiate the options available. 
+
+This feedback was incorporated into the development of the project.
+
+
+### Unit Testing
+
+Unit testing for this project was commenced but not completed. Coverage of 100% was achieved on the models.py file and 75% on the views.py file of the main project app. The overall test coverage was 88%.
+
+
 
