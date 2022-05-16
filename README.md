@@ -124,6 +124,10 @@ At the beginning of the project, ten Epics were created and can be viewed at the
     * US38: Code Validation - As a developer, I want all of the code in the site to conform to best practices, so that it is clear, readable and bug-free
 
 
+
+
+
+
 #### Agile Management
 Throughout the development process, these epics and user stories were managed using the Kanban Board functionality built into Github. The Epics were created, developed into user stories using the Project interface in Github. The User Stories were created as issues with attached task lists and acceptance criteria, and were moved between columns to designate progress on a particular task. Once an issue was completed it was closed and moved to the Done column. The milestone tracker was also used to indicate overall progress and the project backlog.
 
