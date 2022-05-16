@@ -90,12 +90,12 @@ This form allows the user to create their own review for publication on the site
 ![index](/media/readme/features/create_review.png)
 
 #### Book Review Card
-This UI element gathers all the data about a book and presents it to the user in a variety of contexts, for exmaple in the reviews index, in the search page, in the category listing. It shows the book cover, the author and title of the book, the reviewer and the number of stars the reviewer gave the book. Both the cover image and the Read Reiew button provide a link to a detailed view of the book review.
+This UI element gathers all the data about a book and presents it to the user in a variety of contexts, for example in the reviews index, in the search page, in the category listing. It shows the book cover, the author and title of the book, the reviewer and the number of stars the reviewer gave the book. Both the cover image and the Read Reiew button provide a link to a detailed view of the book review.
 
 ![index](/media/readme/features/book_card.png)
 
 #### Detailed Review
-When the user clicks on an individual review, this page shows them the full details including the text of the review. The user is laso given the option to add the book to their wishlist or purchase it if the reviwer included a link. If the user is logged in and looking at one of their own revierws, they will laso be presented with buttons to edit or delete the review.
+When the user clicks on an individual review, this page shows them the full details including the text of the review. The user is also given the option to add the book to their wishlist or purchase it if the reviewer included a link. If the user is logged in and looking at one of their own reviews, they will also be presented with buttons to edit or delete the review.
 
 ![index](/media/readme/features/review_detail.png)
 
@@ -150,13 +150,13 @@ This project made use of Object Oriented Programming principles in two main ways
 
 ## Future Features
 
-There a number of potentially beneficial user features which were not implemented in this sprint. You can view the Kanban board for this project [here](https://github.com/neil314159/portfolio-project-4/projects/1) to see which items were left to be devleoped at a future date.
-* Book Cover API - rather than having to manually search for a book cover image, this could search and retrive the image for the user using the Google Books or Goodreads API.
+There a number of potentially beneficial user features which were not implemented in this sprint. You can view the Kanban board for this project [here](https://github.com/neil314159/portfolio-project-4/projects/1) to see which items were left to be developed at a future date.
+* Book Cover API - rather than having to manually search for a book cover image, this could search and retrieve the image for the user using the Google Books or Goodreads API.
 * AJAX editing -  In order to have instant, on-page editing for categories, reviews and comments, it is necessary to implement AJAX using Javascript so that the user no longer has to refresh the page to see the results of their actions. It is also possible to use the HTMX library with Django to achieve similar functionality.
-* Night mode - Some users prefer to able to chnage the colour scheme on a site themselves, and this feature would allow them a certain level of control.
+* Night mode - Some users prefer to able to change the colour scheme on a site themselves, and this feature would allow them a certain level of control.
 * Social login - it is possible to use the AllAuth package to implement logins using social account credentials such as a Facebook or Google account. Technically this is not very difficult using third-party libraries, but your site must often be verified and approved by the API providers before you can use their credentials to log in users.
 * Book of the week - a nice feature for the site administrator would be the ability to select and highlight a certain book review on the static home page for greater visibility.
-* User messages - commenting has been implemented already but the ability for users to message eac other directy would be beneficial and engaging.
+* User messages - commenting has been implemented already but the ability for users to message each other directly would be beneficial and engaging.
 * Shared wishlists - since wishlists already exist for users, they could potentially share them with other users on the site for reading recommendations.
 
 
@@ -189,12 +189,12 @@ There a number of potentially beneficial user features which were not implemente
 
 * Of the above packages, the most important ones were:
     * Cloudinary, for storing both site and user images and providing static storage
-    * AllAuth, for providing user authorization management. This package takes care of allowing users to register, log in and out, reste their passwords, and use email addresses for account  confirmation and password reset
+    * AllAuth, for providing user authorization management. This package takes care of allowing users to register, log in and out, reset their passwords, and use email addresses for account  confirmation and password reset
     * Crispy Forms, which was used to provide easy Bootsrap styling to the forms generated by Django
 * Django
     * Django is a mature, high-level Python framework used to develop and deploy websites
 * Sendgrid
-    * The SendGrid API allows Django to send out emails for user account operations without havng to use a personal email account to send from. This should lead to better deliverability and less chance of emaisl being marked as spam. I could only use SendGrid with my personal domain as they disallow Gmail addresses.
+    * The SendGrid API allows Django to send out emails for user account operations without having to use a personal email account to send from. This should lead to better deliverability and less chance of emails being marked as spam. I could only use SendGrid with my personal domain as they disallow Gmail addresses.
 * HTML
     * HTML was used mainly to style the templates used by Django for displaying the front end of the site.
 * CSS
@@ -224,13 +224,13 @@ There a number of potentially beneficial user features which were not implemente
 ## Testing
 
 
-A comprehensive manual testing plan was used for this project. A full description of all of the procedures and methods used can be found in the [testing.md file here](TESTING.md). All functionality relating to user actions and CRUD operations was carefully examined. Wherever possible, testing was also related back to the acceptance criteria in the orginal Epics defined before development began.
+A comprehensive manual testing plan was used for this project. A full description of all of the procedures and methods used can be found in the [testing.md file here](TESTING.md). All functionality relating to user actions and CRUD operations was carefully examined. Wherever possible, testing was also related back to the acceptance criteria in the original Epics defined before development began.
 
 
 ## Notable Bugs
 
 1. Slug Creation
-    * Problem: The use of a Django slug is often desirable for publishing articles on a website as it helps to provide a more user-readable URL. In this project, I encountered problems in trying to ensure that no two articles with the same title could ever prodiuce an identical slug. Initially I used a third party component from the Django Extensions package, which was able to create a unique slug but failed when the title had more than one world. I then reverted to generating the slug manually but could not reliably ensure that the same slug would not exist for two reviews of the same book.
+    * Problem: The use of a Django slug is often desirable for publishing articles on a website as it helps to provide a more user-readable URL. In this project, I encountered problems in trying to ensure that no two articles with the same title could ever produce an identical slug. Initially I used a third party component from the Django Extensions package, which was able to create a unique slug but failed when the title had more than one world. I then reverted to generating the slug manually but could not reliably ensure that the same slug would not exist for two reviews of the same book.
     * Solution: I removed the slug from the Model used to represent the book reviews in the database and switched to using an Int-based ID identifier instead. This is slightly less readable but is very effective at guaranteeing uniqueness. In the future it would be possible to switch to a UUID-based identifier instead.
 
 2. Success URLs
@@ -244,7 +244,7 @@ A comprehensive manual testing plan was used for this project. A full descriptio
 
 ## Security
 
-When this project was initally created, the secret key included with the Django installation was commited to Github accidentally. This key was quickly changed and hidden through the environment variables in env.py before deployment to Heroku.
+When this project was initially created, the secret key included with the Django installation was committed to Github accidentally. This key was quickly changed and hidden through the environment variables in env.py before deployment to Heroku.
 
 
 
