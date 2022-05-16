@@ -11,9 +11,11 @@ This is my fourth Portfolio Project for the Diploma in Software Development with
 The project demonstrates working CRUD implementations for a number of data models including Reviews, Comments, and Wishlist Items. 
 
 <br>
+
 ![Screenshot of homepage](./media/readme/screenshotfrontpage.png)
 
 <br>
+
 [Visit the live website on Heroku here](https://book-barn-reviews.herokuapp.com/)
 
 <br>
@@ -52,6 +54,7 @@ The project demonstrates working CRUD implementations for a number of data model
 
 I created this chart to map out the flow of control through the program and help me understand where to direct the various functions.
 <br>
+
 ![dashboardtitle](/docs/Flowchart.png)
 
 # Features
