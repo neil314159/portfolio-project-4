@@ -135,6 +135,29 @@ At the beginning of the project, ten Epics were created and can be viewed at the
 
 
 
+All of the completed user stories are available on the Kanban board found [here](https://github.com/neil314159/portfolio-project-4/projects/1), where the acceptance criteria and implementation actions for each story are visible by clicking on each individual issue. For example, the user story [US49](https://github.com/neil314159/portfolio-project-4/issues/49) is as follows:
+
+Title: Book Cover Image
+
+User Story: As a user, I can upload a cover image for the book review**, so that the book cover can be shown on the site when users browse or search for reviews
+
+Acceptance Criteria:
+- Acceptance Criteria 1
+	Given that I am logged in and registered on the site
+	When I am creating a review
+	Then I will see a field to upload an image for the book cover
+- Acceptance Criteria 2
+	Given that I have written a book review on the site
+	When I do not upload an accompanying cover
+	Then a default image is provided
+
+Tasks:
+- [x] link cloudinary API in the templates and setting files
+- [x] resize the image to appropriate dimensions and ration before using
+- [x] add a default cover if no image is uploaded
+
+Epic: #4 
+
 
 
 

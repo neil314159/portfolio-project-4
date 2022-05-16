@@ -13,12 +13,13 @@
   * [User Account](#user-account)
   * [Search](#search)
   * [Mobile](#mobile)
-  * [User Stories](#user-stories)
   * [Third Party Testing](#third-party-testing)
     + [Unit Testing](#unit-testing)
 
 
 ## Manual Testing
+
+A comprehensive manual testing process has been employed on this project. All areas of functionality on the site were tested repeatedly throughout development, and the results recorded below.
 
 ## HTML/CSS Validation
 ![html & css](./media/testing/spreadsheet/html_css.png)
@@ -140,7 +141,7 @@ The Review model is the main component of this project, and it is important to v
 
 ## Comments CRUD Functionality
 ![comments cruds](./media/testing/spreadsheet/comments_crud.png)
-The Create, Read, Update and Delete operations all work function as expected for user comments. There were some initial problems early in development with attaching the comments to a review, but once I removed the slug field and used integer based ID fields to identify comments and reviews, this worked perfectly.
+The Create, Read, Update and Delete operations all function as expected for user comments. There were some initial problems early in development with attaching the comments to a review, but once I removed the slug field and used integer based ID fields to identify comments and reviews, this worked perfectly.
 
 ## Wishlist CRUD Functionality
 ![wishlist crud](./media/testing/spreadsheet/wishlist_crud.png)
@@ -157,9 +158,6 @@ This test case tests if a user can enter a search term in the navbar search box,
 ## Mobile
 ![mobile](./media/testing/spreadsheet/mobile_testing.png)
 It is important to properly verify that the site works at multiple resolutions on different devices such as phones and tablets. The Bootstrap framework used in this project is well-suited to managing responsive designs and it was confirmed that the site works on small devices. The navbar and menu collapse down to a smaller menu which works well on small screens.
-
-
-## User Stories
 
 ## Third Party Testing
 
