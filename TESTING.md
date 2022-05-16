@@ -15,28 +15,28 @@ CSS validation was carried out with the Jigsaw CSS Validator service. There was 
 HTML Validation was carried out with the W3C validator. An early version of the site flagged an error where I the links in the drop-down menu were incorrectly wrapped in just 'a' tags rather than 'li' tags as well, this error was fixed and no further problems occured.
 
 #### Home Page W3C HTML Validation
-![homepage](./media/testing/validation/html/homepage.png)
+<img src="./media/testing/validation/html/homepage.png" width="300">
 
 #### Reviews Page W3C HTML Validation
-![homepage](./media/testing/validation/html/reviews.png)
+<img src="./media/testing/validation/html/reviews.png" width="300">
 
 #### Add Review Page W3C HTML Validation
-![homepage](./media/testing/validation/html/add_review.png)
+<img src="./media/testing/validation/html/add_review.png" width="300">
 
 #### Search Page W3C HTML Validation
-![homepage](./media/testing/validation/html/searchpage.png)
+<img src="./media/testing/validation/html/searchpage.png" width="300">
 
 #### Category Page W3C HTML Validation
-![homepage](./media/testing/validation/html/category.png)
+<img src="./media/testing/validation/html/category.png" width="300">
 
 #### Profile Page W3C HTML Validation
-![homepage](./media/testing/validation/html/profile_page.png)
+<img src="./media/testing/validation/html/profile_page.png" width="300">
 
 #### Wishlist Page W3C HTML Validation
-![homepage](./media/testing/validation/html/wishlist.png)
+<img src="./media/testing/validation/html/wishlist.png" width="300">
 
 #### Logout Page W3C HTML Validation
-![homepage](./media/testing/validation/html/logout.png)
+<img src="./media/testing/validation/html/logout.png" width="300">
 
 
 ## Python Validation
