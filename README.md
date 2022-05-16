@@ -72,30 +72,30 @@ The homepage explains the purpose of the site to new users, and explains that th
 #### Navbar
 The navbar appears at the top of every page on the site, giving users access to every section of the site. Only logged in users will see the links for adding a review, the profile page and the wishlist page. Logged out users will see links to register and login instead of the logout link here.
 
-![navbar](/media/readme/features/navbar.png)
+![navbar](/media/readme/features/navbar2.png)
 
 #### Dropdown and Search Menu
-On the right hand side of the navbar are the drop-down Category list and the search box. The Category list is populated from the databse and directs users to a page showing books from each genre. The search box takes the user's search term when they hit enter and provides a page of matching results.
+On the right hand side of the navbar are the drop-down category list and the search box. The category list is populated from the database and directs users to a page showing books from each genre. The search box takes the user's search term when they hit enter and provides a page of matching results.
 
 ![navbar](/media/readme/features/dropdown_search.png)
 
 #### Reviews Index
-This page provides the main functionality of the site, it shows a paginated list of all the reviews published on the site in reverse chronological order. The user can see all the reviews available here at a glance. The use of the cover images from the books makes the mpage more engaging and attractive.
+This page provides the main functionality of the site, it shows a paginated list of all the reviews published on the site in reverse chronological order. The user can see all the reviews available here at a glance. The use of the cover images from the books makes the page more engaging and attractive.
 
 ![index](/media/readme/features/indexpage.png)
 
 #### Create Review
-This form allows the user to create their own review for publication on the site. The isntructiosn at the top let them know which fields are mandatory. They enter the book details, upload a photo of the cover if they wish and click submit.
+This form allows the user to create their own review for publication on the site. The instructions at the top let them know which fields are mandatory. They enter the book details, upload a photo of the cover if they wish and click submit.
 
 ![index](/media/readme/features/create_review.png)
 
 #### Book Review Card
-This UI element gathers all the data about a book and presents it to the user in a variety of contexts, for exmaple in the reviews index, in the search page, in the category listing. It shows the book cover, the author and title of the book, the reviewer and the number of stars the reviewer gave the book.
+This UI element gathers all the data about a book and presents it to the user in a variety of contexts, for exmaple in the reviews index, in the search page, in the category listing. It shows the book cover, the author and title of the book, the reviewer and the number of stars the reviewer gave the book. Both the cover image and the Read Reiew button provide a link to a detailed view of the book review.
 
 ![index](/media/readme/features/book_card.png)
 
 #### Detailed Review
-This UI element gathers all the data about a book and presents it to the user in a variety of contexts, for exmaple in the reviews index, in the search page, in the category listing. It shows the book cover, the author and title of the book, the reviewer and the number of stars the reviewer gave the book.
+When the user clicks on an individual review, this page shows them the full details including the text of the review. The user is laso given the option to add the book to their wishlist or purchase it if the reviwer included a link. If the user is logged in and looking at one of their own revierws, they will laso be presented with buttons to edit or delete the review.
 
 ![index](/media/readme/features/review_detail.png)
 
@@ -113,7 +113,7 @@ These pages have a similar layout and function. They display the results of the 
 ![index](/media/readme/features/category.png)
 
 #### Profile Page
-This page has two main functions. First, it allows the user to manage their email and password preferences. They can change their email address, and change their password. The user can also choose to delete their own account.
+This page has two main functions. First, it allows the user to manage their email and password preferences. They can change their email address and their password. The user can also choose to delete their own account.
 
 Below this section the user can also see a table listing all of the articles they have written, which can be clicked on to bring them to the article.
 
