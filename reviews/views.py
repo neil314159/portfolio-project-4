@@ -239,4 +239,5 @@ class WishListDeleteView(LoginRequiredMixin,
 
 
 class HomePageView(generic.TemplateView):
+    """ Static home page template"""
     template_name = 'home.html'
