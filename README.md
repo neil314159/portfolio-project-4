@@ -4,7 +4,7 @@
 
 
 
-Book Barn Reviews is a site designed for book lovers around the world. When you read a great book, the first thing you want to do is tell someone else about it! This site lets you publish your own reviews and also look at reviews from other users to get new ideas. Users can interact with each other via a commenting system, and can also create a wishlist of books they have not yet got around to. The site is built with the Django framework in Python, and also uses HTML and CSS.
+Book Barn Reviews is a site designed for book lovers around the world. When you read a great book, the first thing you want to do is tell someone else about it! This site lets you publish your own reviews and also look at reviews from other users to get new ideas. Users can interact with each other via a commenting system, and can also create a wishlist of books they have not yet read. The site is built with the Django framework in Python, and also uses HTML and CSS.
 
 This is my fourth Portfolio Project for the Diploma in Software Development with the Code Institute.
 
@@ -139,9 +139,9 @@ This footer appears at the bottom of every page on the site and provides easy ac
 
 
 
-## OOP Principles
 
-This project made use of Object Oriented Programming principles in two main ways:
+
+
 ### Class-Based Views
 * Django provides an implementation of generic class Views for Creating, Viewing, Updating and Deleting objects. If your model inherits from these classes, then the forms required for these user interactions are automatically generated and implemented, and the developer just has to provide a template to style the output and user interaction of these forms.
 
@@ -259,16 +259,23 @@ When this project was initially created, the secret key included with the Django
 
 ## Deploying to Heroku
 The project was deployed on the Heroku site by using these steps:
-1. Log into Heroku after creating a user account if necessary.
-1. Select the 'New' button and click 'Create New App'.
-1. Choose a unique name for your app.
-1. Add the buildpacks for Python and NodeJS from the settings page for your project. They must be added in this order.
-1. Add the configuration variables for your app on the settings page. These include PORT=8000 and the credentials used for your API access.
-1. On the settings page, click the 'Deploy' tab.
-1. Select GitHub as the method for deployments.
-1. Sign in when prompted with your GitHub login and search for the repository for your project.
-1. Click the correct repository and click 'Connect'.
-1. Under the deployment type section, you can choose between automatic deployment whenever you push updated code to GitHub, or manual deployment where you must confirm that you want the site updated.
+1. Create a new account on Heroku.
+1. Log into your account.
+1. Click on the 'New' button and click 'Create New App'.
+1. Choose a new name for your app, which must be unique to your app.
+1. Select the Resources menu option from the top of the page.
+1. Search in the Add-ons search box for Heroku Postgres.
+1. Select the Heroku Postgres Add on from the results list and accept the hobby level tier.
+1. Click on the settings tab and go to the hidden variables section.
+1. Here you can add your SECRET_KEY variable which is hidden within the env.py in your Django project.
+1. You can also add a key for static storage such as Cloudinary.
+1. Click the Deploy tab in Heroku.
+1. Normally, you could link to your Github repository through this page and have your project automatically build and deploy. Recenly, however, Github and Heroku have removed this option due to security issues, so the deployment must be carried out manually.
+1. In your terminal type 'heroku login -i'
+1. Enter your Heroku credentials at the prompt.
+1. Type 'heroku git:remote -a your-project-name'
+1. You can now type 'git push heroku main' to deploy
+
 
 ## Local Deployment
 
