@@ -58,8 +58,26 @@ View information about testing in the [testing.md file here](TESTING.md)
 
 ### Skeleton
 
-### Surface
+Balsamiq was used to create the wireframes for this project. The initial layout of the site remained largely the same during the development process, except for the profile page and the wishlist being sepreated into two pages rather than combined into one. The wireframe for the review index page was also used for the search results and category view pages as they are functionally very similar.
 
+* Homepage
+![homepage](/media/readme/wireframes/homepage.png)
+
+* Review Listing
+![homepage](/media/readme/wireframes/review_list.png)
+
+* Review Detail
+![homepage](/media/readme/wireframes/review_detail.png)
+
+* Profile/Wishlist Page
+![homepage](/media/readme/wireframes/profile_page.png)
+
+### Surface
+* Fonts
+
+* Images
+
+* Colours
 
 
 ## Features
@@ -217,7 +235,7 @@ There a number of potentially beneficial user features which were not implemente
     * All screenshots were captured and edited with this program.
 * Balsamiq
     * Used to develop and refine wireframe images in the planning stage of the project.
-* Cloudinary API Refernce
+* Cloudinary API Reference
     * This was used to understand how to apply image transformations when uplaoding and storing images on their service.
 
 
@@ -280,25 +298,17 @@ The project was deployed on the Heroku site by using these steps:
 ## Local Deployment
 
 #### Forking the repo on GitHub
-1. Log into your GitHub account.
+1. Navigate to the Github page and log into your GitHub account.
 1. Navigate to the project page found [here](https://github.com/neil314159/portfolio-project-4).
-1. Click the 'Fork' icon on the upper right hand side of the screen.
-1. This action copies the code into your own repo so you can examine and edit it in the development environment of your choice.
-
-#### Cloning to Gitpod
-1. Install the Google Chrome Gitpod plugin found [here](https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki).
-1. Navigate to the project repository page [here](https://github.com/neil314159/portfolio-project-3).
-1. Click the green GitPod button on the top right of the screen.
-1. This will open the project in a virtual GitPod workspace.
-1. Install the required libraries by executing the command 'pip3 install -r requirements.txt' in your GitPod terminal.
-
+1. Click on the 'Fork' icon on the upper right hand side of the screen.
+1. This makes a copy of the code in your own repo so you can examine it or open it in an IDE.
 
 #### Download a zip file of the source code
 1. Click this [link](https://github.com/neil314159/portfolio-project-4) to the project home page.
 1. Click the 'Code' button on the right hand side.
-1. Select "Download Zip'
-1. Decompress the files on your own machine.
-1. Open them in your local IDE such as VSCode.
+1. Select "Download Zip' option from the menu.
+1. Unzip the files on your own machine.
+1. Open them in the development environment of your choice.
 
 # Credits
 
