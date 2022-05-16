@@ -136,10 +136,11 @@ At the beginning of the project, ten Epics were created and can be viewed at the
 
 
 All of the completed user stories are available on the Kanban board found [here](https://github.com/neil314159/portfolio-project-4/projects/1), where the acceptance criteria and implementation actions for each story are visible by clicking on each individual issue. For example, the user story [US49](https://github.com/neil314159/portfolio-project-4/issues/49) is as follows:
+<br>
+<br>
+Title: US49: Book Cover Image
 
-Title: Book Cover Image
-
-User Story: As a user, I can upload a cover image for the book review**, so that the book cover can be shown on the site when users browse or search for reviews
+User Story: As a user, I can upload a cover image for the book review, so that the book cover can be shown on the site when users browse or search for reviews
 
 Acceptance Criteria:
 - Acceptance Criteria 1
@@ -158,7 +159,8 @@ Tasks:
 
 Epic: #4 
 
-
+<br>
+<br>
 
 
 #### Agile Management
