@@ -8,8 +8,6 @@
 CSS validation was carried out with the Jigsaw CSS Validator service. There was only a small amount of custom CSS included in this project, with most of then styling being done through bootstrap classes. There were no errors returned, with one warning which is die to a limitation of how Jigsaw operates.
 
 #### CSS Validation on Jigsaw
-![access](./media/testing/validation/css.png)
-
 <img src="./media/testing/validation/css.png" width="300">
 
 HTML Validation was carried out with the W3C validator. An early version of the site flagged an error where I the links in the drop-down menu were incorrectly wrapped in just 'a' tags rather than 'li' tags as well, this error was fixed and no further problems occured.
@@ -42,6 +40,43 @@ HTML Validation was carried out with the W3C validator. An early version of the 
 ## Python Validation
 ![python](./media/testing/spreadsheet/python.png)
 
+The Autopep8 package which comes with the Code Institute tenplate was used to fix Python formatting errors in all files. This removed whitespace, fixed line spacing etc. There are a small number of errors remaining on setting.py and models.py . These are errors for lines being too long, and are due to a Cloudinary URL string and 4 Django authorization method names. All files were checked agains the [PEP8 validator](http://pep8online.com).
+
+#### asgi.py Pep8 Validation
+<img src="./media/testing/validation/python/bookbarn/asgi.png" width="300">
+
+#### settings.py Pep8 Validation
+<img src="./media/testing/validation/python/bookbarn/settings.png" width="300">
+
+#### Project urls.py Pep8 Validation
+<img src="./media/testing/validation/python/bookbarn/urls.png" width="300">
+
+#### wsgi.py Pep8 Validation
+<img src="./media/testing/validation/python/bookbarn/wsgi.png" width="300">
+
+#### admin.py Pep8 Validation
+<img src="./media/testing/validation/python/reviews/admin.png" width="300">
+
+#### apps.py Pep8 Validation
+<img src="./media/testing/validation/python/reviews/apps.png" width="300">
+
+#### models.py Pep8 Validation
+<img src="./media/testing/validation/python/reviews/models.png" width="300">
+
+#### templatehelpers.py Pep8 Validation
+<img src="./media/testing/validation/python/reviews/templatehelpers.png" width="300">
+
+#### test_models.py Pep8 Validation
+<img src="./media/testing/validation/python/reviews/test_models.png" width="300">
+
+#### test_views.py Pep8 Validation
+<img src="./media/testing/validation/python/reviews/test_views.png" width="300">
+
+#### urls.py Pep8 Validation
+<img src="./media/testing/validation/python/reviews/urls.png" width="300">
+
+#### views.py Pep8 Validation
+<img src="./media/testing/validation/python/reviews/views.png" width="300">
 
 
 ## Accessibility
