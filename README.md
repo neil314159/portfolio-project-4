@@ -72,24 +72,64 @@ At the beginning of the project, ten Epics were created and can be viewed at the
 #### Translation to User Stories
 
 1. Installation and Setup
-    * 
-    * 
-    * 
+    * US11: Setup and Install Django - As a developer, I can set up django and the necessary software packages, so that I can deploy the site and begin development
+    * US12: Set up environmental variables securely - As a developer, I want to set up the secret keys and database variable in a secure manner, so that they are kept hidden when deployed and not accidentally exposed through github
+    * US13: Deploy to Heroku - As a developer, I want to ensure that the deployment pipeline is functioning, so that I can commence development on the project and test on heroku as well as the local environment
 1. Profiles
+    * US14: Create a User Profile - As a user, I can create a new account on the Book Barn website, so that I have the permissions required to publish my own reviews on the site
+    * US15: View User Profile - As a user, I can log into the site and view my own profile page, so that I can see a list of all reviews I have written and edit or delete them
+    * US16: Update User Profile - As a user, I can view my own profile page and edit my username, so that I can change the name displayed on my reviews that is displayed to other users and site visitors
+    * US17: Delete User Profile - As a user, I can delete my own account, so that I can remove my information and content from the site if I desire
+    * US18: Change User Password - As a user, I can change my password, so that my account remains secure
+    * US19: Reset USer Password - As a user, I can reset my password, so that can access my account if my password is forgotten
 1. User Authentication
+    * US20: Authenticate user login/logout - As a user, I can log and and out of the site, so that my personal details and content are kept secure
+    * US21: Restrict actions to allowed users - As a developer, I want to only allow certain actions when the user is logged in, so that users are unable to access data from other users
+    * US22: Social Login - As a user, I can sign into the site using another account such as Google or Facebook, so that do not have to sign up for a new account and remember another password
 1. Reviews
+    * US45: Create new book review - As a user, I can write and save a new book review on the site, so that other users may see it and get ideas about new books to read
+    * US46: Edit review - As a user, I can edit my published book reviews, so that update my reviews with new information or correct any errors
+    * US47: Display Reviews - As a user, I can view articles reviewing books on the site, so that I can learn about new books I might like to read
+    * US48: Delete reviews - As a user, I can delete a review that I have written, so that it is removed from the site
+    * US49: Book cover image - As a user, I can upload a cover image for the book review, so that the book cover can be shown on the site when users browse or search for reviews
+    * US50: Book cover API - As a user, I can search books by title, so that a book cover image is automatically found and added to my review
+    * US51: AJAX category editing - As a user, I can create a new category when writing a review, so that my article is published under the most suitable genre
 1. Comments
+    * US26: Leave user comments on reviews - As a user, I can write a comment on my own or other reviews, so that I can interact with other users on the site
+    * US27: Moderation for comments in admin panel - As a site owner, I can view all comments on the site through the admin interface and delete them if required, so that inappropriate comments are not publicly displayed
+    * US28: Allow users to manage comments on their own reviews - As a user, I can delete comments left by other users on my own reviews, so that inappropriate comments are not displayed next to content I have written and the administrative burden is lightened for the site owner
 1. Wishlist
+    * US23: Add/remove books from wishlist - s a user, I can click on a like button on each review, so that the book is saved to my wishlist and I can keep track of new books to read
+    * US24: View wishlist on profile page - As a user, I can click on my wishlist link, so that I can see at a glance a list of all the books on my wishlist
+    * US25: External purchase link - As a user, I can view my wishlist of saved books and click on a purchase link, so that I can easily buy books I am interested in
 1. Search
+    * US29: Sitewide search - As a user, I can type text into the search box in the navigation bar, so that I can find matching text in any reviews on the site
+    * US30: AJAX live search - As a user, I can type text into the search box in the navigation bar, so that I see a continuously updated set of search results as I type
+    * US31: Category-based view - As a user, I can select a category from a drop-down menu in the navbar, so that I can view books that interest me the most in a particular genre
 1. Site Interface
+    * US39: Install and configure Bootstrap - As a developer, I want to use a flexible framework, so that the user interface of the site can be made consistent and usable
+    * US40: Night Mode - As a user, I can select the choice between normal and dark mode, so that I can use the site with the colour scheme I prefer
+    * US41: Responsive layout on different devices - As a user, I want to have the site be responsive across different devices, so that I can enjoy a consistent experience and access the site from laptop, phone or tablet
+    * US42: Form styling - As a site owner, I want all forms on the site to be styled in a similar fashion, so that the user interface is consistent across the whole site
+    * US43: Accessibility - As a user, I can make use of accessibility features on the site, so that I can navigate and use the site without difficulty
+    * US44: User feedback messages - As a user, I can receive clear and unambiguous feedback about my actions, so that I can be sure that each operation was carried out successfully
 1. Admin Features
+    * US32: Admin area data formatting - As a site owner, I can log into the admin area and see all comments, reviews and wishlists, so that I can monitor the overall operation of the site and keep an overview of all content posted
+    * US33: Category Managment - As a site owner, I can log into the admin area and add, edit and delete the categories for book reviews, so that book reviews on the site are properly organised
+    * US34: Review of the week - As a site owner, I can select a book review to be highlighted on the main home page, so that high quality content is presented to new users
 1. Testing Strategy
+    * US35: Automated Testing - As a developer, I want to deploy automated testing with high code coverage, so that I can reduce the number of bugs in the site and improve the user experience
+    * US36: Manual testing - As a developer, I want to manually test every aspect of the interface and functionality of the site, so that users can have a bug-free and consistent experience 
+    * US37: Third party testing - As a developer, I can ask an independent person to test out the site while I watch, so that note any bugs or any part of the interface which is not easily understood
+    * US38: Code Validation - As a developer, I want all of the code in the site to conform to best practices, so that it is clear, readable and bug-free
 
 
 #### Agile Management
-Throughout the development process, these epics and user stories were managed using the Kanban Board functionality built into Github. The Epics were created, developed into user stories using the Project interface in Github. The User Stories were created as issues with attached task lists and acceptance criteria, and were moved between columsn to designate progress on a particular task. Once an issue was completed it was marked. The milestone tracker was also used to indicate overall progress and the project backlog.
+Throughout the development process, these epics and user stories were managed using the Kanban Board functionality built into Github. The Epics were created, developed into user stories using the Project interface in Github. The User Stories were created as issues with attached task lists and acceptance criteria, and were moved between columns to designate progress on a particular task. Once an issue was completed it was closed and moved to the Done column. The milestone tracker was also used to indicate overall progress and the project backlog.
 
-The label function for Github issues was used to assign Must Have, Could Have and Should Have status, and unfinished tasks were assigned Won't Have at the end of the sprint. Labels were also sued to indicate the number of user points assigned to each User Story.
+The label function for Github issues was used to assign Must Have, Could Have and Should Have status, and unfinished tasks were assigned Won't Have at the end of the sprint. Labels were also used to indicate the number of user points assigned to each User Story.
+
+Overall, 82% of issues/User Stories were completed and marked closed, with a number of features remaining for future sprints.
 
 <br>
 
