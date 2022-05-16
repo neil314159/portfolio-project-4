@@ -2,7 +2,7 @@
 
 ## Manual Testing
 
-### HTML/CSS Validation
+## HTML/CSS Validation
 ![html & css](./media/testing/spreadsheet/html_css.png)
 
 CSS validation was carried out with the Jigsaw CSS Validator service. There was only a small amount of custom CSS included in this project, with most of then styling being done through bootstrap classes. There were no errors returned, with one warning which is die to a limitation of how Jigsaw operates.
@@ -10,7 +10,9 @@ CSS validation was carried out with the Jigsaw CSS Validator service. There was 
 #### CSS Validation on Jigsaw
 ![access](./media/testing/validation/css.png)
 
-HTML Validation was carried out with the W3C validator. An early version of the site flagged an error where I the links in the drop-down menu were incorrectly wrapped in just '<a>' tags rather than '<li>' tags as well, this error was fixed and no further problems occured.
+<img src="./media/testing/validation/css.png" width="300">
+
+HTML Validation was carried out with the W3C validator. An early version of the site flagged an error where I the links in the drop-down menu were incorrectly wrapped in just 'a' tags rather than 'li' tags as well, this error was fixed and no further problems occured.
 
 #### Home Page W3C HTML Validation
 ![homepage](./media/testing/validation/html/homepage.png)
@@ -37,12 +39,12 @@ HTML Validation was carried out with the W3C validator. An early version of the 
 ![homepage](./media/testing/validation/html/logout.png)
 
 
-### Python Validation
+## Python Validation
 ![python](./media/testing/spreadsheet/python.png)
 
 
 
-### Accessibility
+## Accessibility
 ![access](./media/testing/spreadsheet/accessibility.png)
 Accessibility testing was carried out with the [WAVE tool](https://wave.webaim.org/), all pages returned no errors found. All tags were properly filled in and there were no low-contrast areas of the side which would be difficult for users with poor vision. It should be noted that the online WAVE tool was only able to check pages where the user was not logged in. To check those pages I installed the Wave Chrome Extension which lets you check any page.
 
@@ -72,31 +74,33 @@ Accessibility testing was carried out with the [WAVE tool](https://wave.webaim.o
 
 
 
-### Navigation
+## Navigation
 ![nav](./media/testing/spreadsheet/navigation.png)
 
-### Browse Reviews
+## Browse Reviews
 ![browse reviews](./media/testing/spreadsheet/browse_reviews.png)
 
-### Reviews CRUD Functionality
+## Reviews CRUD Functionality
 ![reviews crud](./media/testing/spreadsheet/reviews_crud.png)
 
-### Comments CRUD Functionality
+## Comments CRUD Functionality
 ![comments cruds](./media/testing/spreadsheet/comments_crud.png)
 
-### Wishlist CRUD Functionality
+## Wishlist CRUD Functionality
 ![wishlist crud](./media/testing/spreadsheet/wishlist_crud.png)
 
-### User Account
+## User Account
 ![account](./media/testing/spreadsheet/user_account.png)
 
-### Search
+## Search
 ![search](./media/testing/spreadsheet/search.png)
 
-### Mobile
+## Mobile
 ![mobile](./media/testing/spreadsheet/mobile_testing.png)
 
 ## User Stories
+
+## Third Party Testing
 
 ## Unit Testing
 
